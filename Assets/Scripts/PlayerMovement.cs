@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float horizontal;
     private float vertical;
-    private float moveLimiter = 0.7f;
+    private float moveLimiter = 0.6f;
 
     private float runSpeed = 6.5f;
     
