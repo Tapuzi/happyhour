@@ -5,8 +5,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWebTransport", "Simpl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mirror", "Mirror.csproj", "{bbf41df1-5e33-2ef1-98ec-a065ab331015}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mirror.Examples", "Mirror.Examples.csproj", "{e0d87906-6df7-dff0-ea8c-03a051f5937c}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mirror.Components", "Mirror.Components.csproj", "{8376b26a-7c3d-fa46-b3fe-e683b41fa58b}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kcp2k", "kcp2k.csproj", "{71852795-8913-176e-fd1d-d70bf36a4e60}"
@@ -39,10 +37,6 @@ Global
 		{bbf41df1-5e33-2ef1-98ec-a065ab331015}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{bbf41df1-5e33-2ef1-98ec-a065ab331015}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{bbf41df1-5e33-2ef1-98ec-a065ab331015}.Release|Any CPU.Build.0 = Release|Any CPU
-		{e0d87906-6df7-dff0-ea8c-03a051f5937c}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{e0d87906-6df7-dff0-ea8c-03a051f5937c}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{e0d87906-6df7-dff0-ea8c-03a051f5937c}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{e0d87906-6df7-dff0-ea8c-03a051f5937c}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8376b26a-7c3d-fa46-b3fe-e683b41fa58b}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8376b26a-7c3d-fa46-b3fe-e683b41fa58b}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8376b26a-7c3d-fa46-b3fe-e683b41fa58b}.Release|Any CPU.ActiveCfg = Release|Any CPU
