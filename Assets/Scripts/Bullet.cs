@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject,2f);
     }
 
-    public void OnCollisionEnter2D(Collision2D other)
+    public void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.CompareTag("Zombie"))
         {
