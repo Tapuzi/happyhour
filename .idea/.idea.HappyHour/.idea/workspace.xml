@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7d135f74-7d01-490e-956f-cc7fa7797c9f" name="Changes" comment="Added crouching &amp; stunned if hit by projectile mechanic">
-      <change afterPath="$PROJECT_DIR$/Assets/Objects.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Objects/Wave 1.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Objects/Wave 1.asset.meta" afterDir="false" />
+    <list default="true" id="7d135f74-7d01-490e-956f-cc7fa7797c9f" name="Changes" comment="Added Integration Scene + Started work on player movement">
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/LevelManager.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/LevelManager.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/characterMedium.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/characterMedium.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Integration.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Integration.unity.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HappyHour/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HappyHour/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graphics/Models/Animated Characters/Unity package/animatedCharacters1.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NetworkManagerHappyHour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NetworkManagerHappyHour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WaveConfigSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WaveConfigSO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ZombieSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ZombieSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSceneAviv.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSceneAviv.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HappyHour.sln" beforeDir="false" afterPath="$PROJECT_DIR$/HappyHour.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/Mirror.CompilerSymbols.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Mirror.CompilerSymbols.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/Telepathy.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Telepathy.csprojAssemblyReference.cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,15 +33,20 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Graphics/Models/Kitchen Set/bedSingle.fbx.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RecipeSO.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/UserSettings/EditorUserSettings.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CWaveConfigSO.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PreparingRecipe.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Shooting.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Zombie.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Prefabs/Zombie.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Scripts/Bullet.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Pickable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Scenes/SampleScene.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Scenes/BackgroundScene.unity.meta" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Graphics/Models/FBX format/pillow.fbx.meta" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Graphics/Models/Kitchen Set/rugRectangle.fbx.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Scenes/TestSceneAviv.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/obj/Debug/.NETFramework,Version=v4.7.1.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Graphics/Models/Kitchen Set/wallCornerRond.fbx.meta" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Scripts/PlayerMovement.cs" root0="SKIP_HIGHLIGHTING" />
@@ -73,6 +82,7 @@
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Scenes/TestScene.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/UserSettings/EditorUserSettings.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LevelManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Scripts/PlayerMovement.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/WaveConfigSO.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Graphics/Models/Kitchen Set/kitchenCabinetUpperCorner.fbx.meta" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Graphics/Models/Kitchen Set/bear.fbx.meta" root0="SKIP_HIGHLIGHTING" />
@@ -239,6 +249,7 @@
     <MESSAGE value="pickable + zombiespawner changes" />
     <MESSAGE value="Added player death by zombie mechanic" />
     <MESSAGE value="Added crouching &amp; stunned if hit by projectile mechanic" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added crouching &amp; stunned if hit by projectile mechanic" />
+    <MESSAGE value="Added Integration Scene + Started work on player movement" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Integration Scene + Started work on player movement" />
   </component>
 </project>

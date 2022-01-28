@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody2D body;
-    
+    private Rigidbody body;
+    [SerializeField] GameObject mapPlane;
+    [SerializeField] GameObject rayStart;
 
     private float horizontal;
     private float vertical;
@@ -21,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Start()
     {
-        body = GetComponent<Rigidbody2D>();
+        body = GetComponent<Rigidbody>();
         cam = Camera.main;
     }
 
@@ -56,28 +57,54 @@ public class PlayerMovement : MonoBehaviour
         } 
         
         if(!crouching)
-            body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+            body.velocity = new Vector3(horizontal * runSpeed, 0, vertical * runSpeed);
         else
         {
-            body.velocity = new Vector2(horizontal * crouchingSpeed, vertical * crouchingSpeed);
+            body.velocity = new Vector3(horizontal * crouchingSpeed, 0, vertical * crouchingSpeed);
         }
         
-        Vector3 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-		
+        //Vector3 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        
+        
+        
+        Ray mousePos = cam.ScreenPointToRay(Input.mousePosition);
+        Debug.DrawRay(mousePos.origin, mousePos.direction * 100, Color.red);
+        RaycastHit hitinfo;
+        
+        if(mapPlane.GetComponent<Collider>().Raycast(mousePos, out hitinfo, 100000f))
+        {
+            Debug.Log(hitinfo);
+            transform.rotation = Quaternion.LookRotation(transform.position - hitinfo.point, Vector3.up);
+        }
+        else
+        {
+            Debug.Log("not working");
+        }
+        
+        /*
+        Vector3 mouse = Input.mousePosition;
+        Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(new Vector3(
+            mouse.x, 
+            mouse.y,
+            transform.position.y));
+        Vector3 forward = mouseWorld - transform.position;
+        transform.rotation = Quaternion.LookRotation(forward, Vector3.up);
+        */
         // rotate Y (green axis) towards mouse
-        //transform.rotation = Quaternion.LookRotation(Vector3.forward, mousePos - transform.position);
+        //transform.rotation = Quaternion.LookRotation(Vector3.up, hitinfo.point);
 
         // rotate Y (green axis) away from mouse
         //transform.rotation = Quaternion.LookRotation(Vector3.forward, transform.position-mousePos);
 
         // rotate X (red axis) towards mouse
-        Vector3 perpendicular = Vector3.Cross(transform.position-mousePos,Vector3.forward);
-        transform.rotation = Quaternion.LookRotation(Vector3.forward, perpendicular);
+        //Vector3 perpendicular = Vector3.Cross(transform.position-mousePos,Vector3.forward);
+        //transform.rotation = Quaternion.LookRotation(Vector3.forward, perpendicular);
+
 
         // rotate X (red axis) away from mouse
         //Vector3 perpendicular = Vector3.Cross(mousePos-transform.position,Vector3.forward);
         //transform.rotation = Quaternion.LookRotation(Vector3.forward, perpendicular);
-		
+
         // using lookat
         // transform.LookAt(target.position, new Vector3(0, 0, -1));
     }
