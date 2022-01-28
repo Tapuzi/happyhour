@@ -10,7 +10,7 @@ public class Zombie : MonoBehaviour
     [SerializeField] private float speed = 4f;
     private Rigidbody rb;
 
-    private bool stopMovement = false;
+    public bool stopMovement = false;
     
     // Start is called before the first frame update
     void Start()
@@ -65,12 +65,15 @@ public class Zombie : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Counter"))
         {
+            Debug.Log(other.gameObject.name);
+            
             stopMovement = true;
-            yield return new WaitForSeconds(2);
-            if (stopMovement)
+            Collider tmp = other.collider;
+            yield return new WaitForSeconds(1);
+            if (stopMovement && tmp.enabled)
             {
                 // damage counter
-                other.gameObject.GetComponent<BarHealth>().Damage();
+                other.gameObject.GetComponent<BarHealth>().Damage(this);
 
             }
         }
@@ -80,7 +83,7 @@ public class Zombie : MonoBehaviour
     
     private void OnCollisionExit(Collision other)
     {
-        if (other.gameObject.CompareTag("Counter"))
+        if (other.gameObject.CompareTag("Counter") || other.gameObject.CompareTag("Counter2"))
         {
             stopMovement = false;
         }
