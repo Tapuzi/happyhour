@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ public class Zombie : MonoBehaviour
     private Transform playerTransform;
     [SerializeField] private float speed = 4f;
     private Rigidbody2D rb;
+
+    private bool stopMovement = false;
     
     // Start is called before the first frame update
     void Start()
@@ -34,7 +37,7 @@ public class Zombie : MonoBehaviour
 
     private void FollowPlayer()
     {
-        if (playerTransform == null)
+        if (playerTransform == null || stopMovement)
         {
             return;
         }
@@ -42,7 +45,39 @@ public class Zombie : MonoBehaviour
         Vector3 pos = Vector3.MoveTowards(transform.position, playerTransform.position, speed * Time.fixedDeltaTime);
         rb.MovePosition(pos);
 
-        Vector3 perpendicular = Vector3.Cross(transform.position-playerTransform.position,Vector3.forward);
+        Vector3 perpendicular = Vector3.Cross(transform.position - playerTransform.position,Vector3.forward);
         transform.rotation = Quaternion.LookRotation(Vector3.forward, perpendicular);
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Destroy(other.gameObject);
+            LevelManager.Instance.GameOver();
+        }
+
+        
+    }
+
+    private IEnumerator OnCollisionStay2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Counter"))
+        {
+            stopMovement = true;
+            yield return new WaitForSeconds(2);
+            if (stopMovement)
+            {
+                // damage counter
+            }
+        }
+    }
+    
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Counter"))
+        {
+            stopMovement = false;
+        }
     }
 }

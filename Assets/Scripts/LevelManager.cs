@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    private LevelManager instance;
+    public static LevelManager Instance;
 
     void Awake()
     {
-        if (instance != null && instance != this)
+        if (Instance != null && Instance != this)
         {
             Destroy(this.gameObject);
         }
         else
         {
-            instance = this;
+            Instance = this;
         }
+    }
+
+    public void GameOver()
+    {
+        Debug.Log("Game Over");
     }
 }
