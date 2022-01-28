@@ -7,12 +7,7 @@ public class ZombieSpawner : MonoBehaviour
 {
     [SerializeField] private List<WaveConfigSO> waves;
 
-    private void Start()
-    {
-        SpawnEnemies();
-    }
-
-    private void SpawnEnemies()
+    public void SpawnEnemies()
     {
         foreach (var currentWave in waves)
         {

@@ -3,6 +3,7 @@
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D body;
+    
 
     private float horizontal;
     private float vertical;
@@ -54,5 +55,10 @@ public class PlayerMovement : MonoBehaviour
 		
         // using lookat
         // transform.LookAt(target.position, new Vector3(0, 0, -1));
+    }
+
+    public Vector3 GetPosition()
+    {
+        return GetComponent<Transform>().position;
     }
 }
