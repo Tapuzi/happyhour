@@ -9,6 +9,7 @@ public class Zombie : MonoBehaviour
     private Transform playerTransform;
     [SerializeField] private float speed = 4f;
     private Rigidbody rb;
+    private bool cooldown;
 
     public bool stopMovement = false;
     
@@ -61,7 +62,7 @@ public class Zombie : MonoBehaviour
         
     }
 
-    private IEnumerator OnCollisionStay(Collision other)
+    private void OnCollisionStay(Collision other)
     {
         if (other.gameObject.CompareTag("Counter"))
         {
@@ -69,17 +70,28 @@ public class Zombie : MonoBehaviour
             
             stopMovement = true;
             Collider tmp = other.collider;
-            yield return new WaitForSeconds(1);
-            if (stopMovement && tmp.enabled)
-            {
-                // damage counter
-                other.gameObject.GetComponent<BarHealth>().Damage(this);
-
-            }
+            if(tmp.enabled && stopMovement)
+                other.gameObject.GetComponent<BarHealth>().Damage(this); // do damage
+            //StartCoroutine(SendDamage(other, tmp));
         }
     }
-    
-    
+
+    private IEnumerator SendDamage(Collision other, Collider tmp)
+    {
+        cooldown = true;
+        
+        //wait 2 seconds
+        yield return new WaitForSeconds(2);
+
+        if (cooldown)
+        {
+            cooldown = false;
+            // check if still valid
+            if (tmp.enabled && stopMovement) ;
+
+        }
+        
+    }
     
     private void OnCollisionExit(Collision other)
     {

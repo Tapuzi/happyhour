@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7d135f74-7d01-490e-956f-cc7fa7797c9f" name="Changes" comment="Added Integration Scene + Started work on player movement">
+    <list default="true" id="7d135f74-7d01-490e-956f-cc7fa7797c9f" name="Changes" comment="Worked on tile behavior damage &amp; fix">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HappyHour/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HappyHour/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bullet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bullet.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bullet.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Zombie.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Zombie.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Zombie.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Zombie.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/characterMedium.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/characterMedium.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/bar/tileAll.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/bar/tileAll.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/bar/tileDestroyA.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/bar/tileDestroyA.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/bar/tileDestroyB.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/bar/tileDestroyB.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/bar/tileDestroyC.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/bar/tileDestroyC.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/bar/tileWhole.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/bar/tileWhole.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Integration.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Integration.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bullet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Shooting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Shooting.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BarHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BarHealth.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Zombie.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Zombie.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +32,7 @@
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/UserSettings/EditorUserSettings.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CWaveConfigSO.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PreparingRecipe.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Scripts/Bullet.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Shooting.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Zombie.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Prefabs/Zombie.prefab" root0="SKIP_HIGHLIGHTING" />
@@ -46,6 +46,7 @@
     <setting file="file://$PROJECT_DIR$/obj/Debug/.NETFramework,Version=v4.7.1.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Graphics/Models/Kitchen Set/wallCornerRond.fbx.meta" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Scripts/PlayerMovement.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d3b66f0ad4e34a55b6ef91ab8487819313c000/d4/623cb81c/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Graphics/Models/Kitchen Set/books.fbx.meta" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Graphics/Models/FBX format/bathroomSink.fbx.meta" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Graphics/Models/Kitchen Set/wallHalf.fbx.meta" root0="SKIP_HIGHLIGHTING" />
@@ -63,16 +64,21 @@
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Prefabs/Zombie.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Scripts/ZombieSpawner.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Library/SceneVisibilityState.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Scripts/BarHealth.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Graphics/Models/Kitchen Set/bathroomCabinetDrawer.fbx.meta" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Prefabs/Zombie.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Scripts/BarHealth.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Prefabs/Bullet.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Prefabs/Zombie.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/UserSettings/EditorUserSettings.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Graphics/Models/Kitchen Set/kitchenCoffeeMachine.fbx.meta" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Graphics/Models/FBX format/cabinetTelevision.fbx.meta" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Scripts/Zombie.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Graphics/Models/FBX format/chair.fbx.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Prefabs/bar/tileAll.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Graphics/Models/Kitchen Set/toaster.fbx.meta" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Graphics/Models/Kitchen Set/lampRoundFloor.fbx.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Scripts/Zombie.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Graphics/Models/FBX format/plantSmall3.fbx.meta" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Scripts/LevelManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Scenes/TestScene.unity" root0="SKIP_HIGHLIGHTING" />
@@ -82,6 +88,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/WaveConfigSO.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Graphics/Models/Kitchen Set/kitchenCabinetUpperCorner.fbx.meta" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Graphics/Models/Kitchen Set/bear.fbx.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Prefabs/Objects/kitchenBar.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Graphics/Models/FBX format/loungeDesignSofaCorner.fbx.meta" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Scenes/BackgroundScene.unity.meta" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Graphics/Models/Kitchen Set/rugSquare.fbx.meta" root0="SKIP_HIGHLIGHTING" />
@@ -93,12 +100,13 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.35029685" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.35058215" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="XThreadsFramesViewSplitterKey" value="0.5681818" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -218,7 +226,25 @@
       <option name="presentableId" value="LOCAL‎00012" />
       <updated>1643395577952</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL‎00013" summary="Added zombie prefab and movement behavior">
+      <created>1643400335678</created>
+      <option name="number" value="LOCAL‎00013" />
+      <option name="presentableId" value="LOCAL‎00013" />
+      <updated>1643400335678</updated>
+    </task>
+    <task id="LOCAL‎00014" summary="Zombie &amp; bar changes">
+      <created>1643404854462</created>
+      <option name="number" value="LOCAL‎00014" />
+      <option name="presentableId" value="LOCAL‎00014" />
+      <updated>1643404854462</updated>
+    </task>
+    <task id="LOCAL‎00015" summary="Worked on tile behavior damage &amp; fix">
+      <created>1643407134974</created>
+      <option name="number" value="LOCAL‎00015" />
+      <option name="presentableId" value="LOCAL‎00015" />
+      <updated>1643407134974</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -252,6 +278,41 @@
     <MESSAGE value="Added player death by zombie mechanic" />
     <MESSAGE value="Added crouching &amp; stunned if hit by projectile mechanic" />
     <MESSAGE value="Added Integration Scene + Started work on player movement" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Integration Scene + Started work on player movement" />
+    <MESSAGE value="Added zombie prefab and movement behavior" />
+    <MESSAGE value="Zombie &amp; bar changes" />
+    <MESSAGE value="Worked on tile behavior damage &amp; fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Worked on tile behavior damage &amp; fix" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Zombie.cs</url>
+          <line>54</line>
+          <properties documentPath="C:\Users\Amit\Documents\HappyHour\Assets\Scripts\Zombie.cs" initialLine="54" containingFunctionPresentation="method 'OnCollisionEnter'">
+            <startOffsets>
+              <option value="1364" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1406" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Zombie.cs</url>
+          <line>67</line>
+          <properties documentPath="C:\Users\Amit\Documents\HappyHour\Assets\Scripts\Zombie.cs" initialLine="67" containingFunctionPresentation="method 'OnCollisionStay'">
+            <startOffsets>
+              <option value="1666" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1699" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

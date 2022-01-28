@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 
@@ -7,11 +8,28 @@ public class BarHealth : MonoBehaviour
 {
     public int maxHp = 3;
     public int currentHp = 3;
-
+    [SerializeField] List<GameObject> skins;
+    [SerializeField] private float damageTick = 1.5f;
+    bool flag = true;
+    
+    
+    
     public void Damage(Zombie attacker)
     {
+        if (!flag)
+            return;
+
+        flag = false;
+        
+        StartCoroutine(ProtectedForSeconds(attacker));
+    }
+
+    private IEnumerator ProtectedForSeconds(Zombie attacker)
+    {
+        yield return new WaitForSeconds(damageTick);
+        flag = true;
         currentHp -= 1;
-        UpdateSkin();
+        UpdateSkin(currentHp);
         if (currentHp == 0)
         {
             Break(attacker);
@@ -35,23 +53,19 @@ public class BarHealth : MonoBehaviour
             FixFromBroken();
 
         currentHp++;
-        UpdateSkin();
+        UpdateSkin(currentHp);
     }
 
-    private void UpdateSkin()
+    private void UpdateSkin(int skinIndex)
     {
-        switch (currentHp)
+        for(int i = 0; i < skins.Count; i++)
         {
-            case 0:
-                // set broken sprite
-            case 1:
-                // set almost broken sprite
-            case 2:
-                // set slightly broken sprite
-            case 3:
-                // set normal sprite
-
-                return;
+            if(i == skinIndex)
+                skins[i].SetActive(true);
+            else
+            {
+                skins[i].SetActive(false);
+            }
         }
     }
 
