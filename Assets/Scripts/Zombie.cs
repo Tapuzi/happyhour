@@ -68,6 +68,15 @@ public class Zombie : MonoBehaviour
             yield return new WaitForSeconds(2);
             if (stopMovement)
             {
+                var barHealthItem = other.gameObject.GetComponent<BarHealth>();
+                if (barHealthItem == null)
+                    Debug.Log("Help");
+                barHealthItem.currentHp -= 1;
+                if (barHealthItem.currentHp == 0)
+                {
+                    barHealthItem.Break();
+                }
+
                 // damage counter
             }
         }
