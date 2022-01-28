@@ -66,6 +66,7 @@
      <Compile Include="Assets\Scripts\RecipeSO.cs" />
      <Compile Include="Assets\Scripts\PreparingRecipe.cs" />
      <Compile Include="Assets\Scripts\CWaveConfigSO.cs" />
+     <Compile Include="Assets\Scripts\BarHealth.cs" />
      <None Include="Assets\Mirror\Version.txt" />
      <None Include="Assets\Mirror\Readme.txt" />
      <None Include="Assets\Mirror\Notice.txt" />

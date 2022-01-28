@@ -14210,7 +14210,7 @@ GameObject:
   - component: {fileID: 416262723}
   m_Layer: 0
   m_Name: Bar
-  m_TagString: Untagged
+  m_TagString: Counter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81057,9 +81057,10 @@ GameObject:
   - component: {fileID: 1975849835}
   - component: {fileID: 1975849834}
   - component: {fileID: 1975849833}
+  - component: {fileID: 1975849837}
   m_Layer: 0
   m_Name: Cube (3)
-  m_TagString: Untagged
+  m_TagString: Counter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81357,6 +81358,20 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!114 &1975849837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975849831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f8a7b9bf1ba48a1a71109311a3399f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 3
+  currentHp: 3
 --- !u!43 &1977446018
 Mesh:
   m_ObjectHideFlags: 0

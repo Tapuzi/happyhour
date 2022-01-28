@@ -21,6 +21,6 @@ public class BarHealth : MonoBehaviour
 
     public void Break()
     {
-        
+        Destroy(this.gameObject);
     }
 }

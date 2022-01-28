@@ -39,13 +39,14 @@ public class Zombie : MonoBehaviour
     {
         if (playerTransform == null || stopMovement)
         {
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
             return;
         }
 
         Vector3 pos = Vector3.MoveTowards(transform.position, playerTransform.position, speed * Time.fixedDeltaTime);
         rb.MovePosition(pos);
-
-        //Vector3 perpendicular = Vector3.Cross(transform.position - playerTransform.position,Vector3.forward);
+        
         transform.rotation = Quaternion.LookRotation(playerTransform.position - transform.position, Vector3.up);
     }
 
@@ -68,19 +69,14 @@ public class Zombie : MonoBehaviour
             yield return new WaitForSeconds(2);
             if (stopMovement)
             {
-                var barHealthItem = other.gameObject.GetComponent<BarHealth>();
-                if (barHealthItem == null)
-                    Debug.Log("Help");
-                barHealthItem.currentHp -= 1;
-                if (barHealthItem.currentHp == 0)
-                {
-                    barHealthItem.Break();
-                }
-
                 // damage counter
+                other.gameObject.GetComponent<BarHealth>().Damage();
+
             }
         }
     }
+    
+    
     
     private void OnCollisionExit(Collision other)
     {
