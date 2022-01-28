@@ -12,8 +12,8 @@ public class PlayerMovement : MonoBehaviour
     private float vertical;
     private float moveLimiter = 0.6f;
 
-    private float runSpeed = 6.5f;
-    private float crouchingSpeed = 3.0f;
+    private float runSpeed = 8f;
+    private float crouchingSpeed = 4.0f;
     
     private Camera cam;
 
@@ -68,19 +68,13 @@ public class PlayerMovement : MonoBehaviour
         
         
         Ray mousePos = cam.ScreenPointToRay(Input.mousePosition);
-        Debug.DrawRay(mousePos.origin, mousePos.direction * 100, Color.red);
         RaycastHit hitinfo;
         
         if(mapPlane.GetComponent<Collider>().Raycast(mousePos, out hitinfo, 100000f))
         {
-            Debug.Log(hitinfo);
-            transform.rotation = Quaternion.LookRotation(transform.position - hitinfo.point, Vector3.up);
+            transform.rotation = Quaternion.LookRotation( hitinfo.point - transform.position, Vector3.up);
         }
-        else
-        {
-            Debug.Log("not working");
-        }
-        
+
         /*
         Vector3 mouse = Input.mousePosition;
         Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(new Vector3(

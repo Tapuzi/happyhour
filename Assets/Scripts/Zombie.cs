@@ -8,7 +8,7 @@ public class Zombie : MonoBehaviour
     private PlayerMovement player;
     private Transform playerTransform;
     [SerializeField] private float speed = 4f;
-    private Rigidbody2D rb;
+    private Rigidbody rb;
 
     private bool stopMovement = false;
     
@@ -16,7 +16,7 @@ public class Zombie : MonoBehaviour
     void Start()
     {
         player = FindObjectOfType<PlayerMovement>();
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -45,11 +45,11 @@ public class Zombie : MonoBehaviour
         Vector3 pos = Vector3.MoveTowards(transform.position, playerTransform.position, speed * Time.fixedDeltaTime);
         rb.MovePosition(pos);
 
-        Vector3 perpendicular = Vector3.Cross(transform.position - playerTransform.position,Vector3.forward);
-        transform.rotation = Quaternion.LookRotation(Vector3.forward, perpendicular);
+        //Vector3 perpendicular = Vector3.Cross(transform.position - playerTransform.position,Vector3.forward);
+        transform.rotation = Quaternion.LookRotation(playerTransform.position - transform.position, Vector3.up);
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
@@ -60,7 +60,7 @@ public class Zombie : MonoBehaviour
         
     }
 
-    private IEnumerator OnCollisionStay2D(Collision2D other)
+    private IEnumerator OnCollisionStay(Collision other)
     {
         if (other.gameObject.CompareTag("Counter"))
         {
@@ -73,7 +73,7 @@ public class Zombie : MonoBehaviour
         }
     }
     
-    private void OnCollisionExit2D(Collision2D other)
+    private void OnCollisionExit(Collision other)
     {
         if (other.gameObject.CompareTag("Counter"))
         {
