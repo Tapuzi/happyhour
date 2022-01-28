@@ -54,8 +54,8 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\NetworkManagerHappyHour.cs" />
      <Compile Include="Assets\Scripts\NetworkPlayer.cs" />
-     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Shooting.cs" />
+     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <None Include="Assets\Mirror\Version.txt" />
      <None Include="Assets\Mirror\Readme.txt" />
      <None Include="Assets\Mirror\Notice.txt" />
@@ -282,20 +282,20 @@
  <Reference Include="UnityEditor.UnityConnectModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.26f1/Editor/Data/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
  </Reference>
- <Reference Include="Newtonsoft.Json">
- <HintPath>C:/Users/Amit/Documents/HappyHour/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
+ <Reference Include="Mono.CecilX.Rocks">
+ <HintPath>C:/Users/Amit/Documents/HappyHour/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Rocks.dll</HintPath>
+ </Reference>
+ <Reference Include="Mono.CecilX.Pdb">
+ <HintPath>C:/Users/Amit/Documents/HappyHour/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Pdb.dll</HintPath>
  </Reference>
  <Reference Include="Mono.CecilX">
  <HintPath>C:/Users/Amit/Documents/HappyHour/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.dll</HintPath>
  </Reference>
- <Reference Include="Mono.CecilX.Rocks">
- <HintPath>C:/Users/Amit/Documents/HappyHour/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Rocks.dll</HintPath>
+ <Reference Include="Newtonsoft.Json">
+ <HintPath>C:/Users/Amit/Documents/HappyHour/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="Mono.CecilX.Mdb">
  <HintPath>C:/Users/Amit/Documents/HappyHour/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Mdb.dll</HintPath>
- </Reference>
- <Reference Include="Mono.CecilX.Pdb">
- <HintPath>C:/Users/Amit/Documents/HappyHour/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Pdb.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.26f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -734,6 +734,10 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Mirror.csproj">
+      <Project>{bbf41df1-5e33-2ef1-98ec-a065ab331015}</Project>
+      <Name>Mirror</Name>
+    </ProjectReference>
     <ProjectReference Include="kcp2k.csproj">
       <Project>{71852795-8913-176e-fd1d-d70bf36a4e60}</Project>
       <Name>kcp2k</Name>
@@ -741,18 +745,6 @@
     <ProjectReference Include="Mirror.Editor.csproj">
       <Project>{61f19196-9dba-e686-71bb-08ad3280b13e}</Project>
       <Name>Mirror.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="where-allocations.csproj">
-      <Project>{12e07f13-7114-3adf-1fe4-bc6d020a35c9}</Project>
-      <Name>where-allocations</Name>
-    </ProjectReference>
-    <ProjectReference Include="Telepathy.csproj">
-      <Project>{e04d854b-9c33-c672-7200-6f78f075fe63}</Project>
-      <Name>Telepathy</Name>
-    </ProjectReference>
-    <ProjectReference Include="Mirror.Components.csproj">
-      <Project>{8376b26a-7c3d-fa46-b3fe-e683b41fa58b}</Project>
-      <Name>Mirror.Components</Name>
     </ProjectReference>
     <ProjectReference Include="Mirror.CompilerSymbols.csproj">
       <Project>{e0a05a37-fed7-cdf6-92e9-fd2bf4543edc}</Project>
@@ -762,13 +754,21 @@
       <Project>{7a413661-f755-7617-81a8-059aba35a2f7}</Project>
       <Name>Mirror.Authenticators</Name>
     </ProjectReference>
-    <ProjectReference Include="Mirror.csproj">
-      <Project>{bbf41df1-5e33-2ef1-98ec-a065ab331015}</Project>
-      <Name>Mirror</Name>
+    <ProjectReference Include="Telepathy.csproj">
+      <Project>{e04d854b-9c33-c672-7200-6f78f075fe63}</Project>
+      <Name>Telepathy</Name>
+    </ProjectReference>
+    <ProjectReference Include="where-allocations.csproj">
+      <Project>{12e07f13-7114-3adf-1fe4-bc6d020a35c9}</Project>
+      <Name>where-allocations</Name>
     </ProjectReference>
     <ProjectReference Include="SimpleWebTransport.csproj">
       <Project>{f6c8c6f4-7a8d-8ed8-721a-28bb6ef760ae}</Project>
       <Name>SimpleWebTransport</Name>
+    </ProjectReference>
+    <ProjectReference Include="Mirror.Components.csproj">
+      <Project>{8376b26a-7c3d-fa46-b3fe-e683b41fa58b}</Project>
+      <Name>Mirror.Components</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
