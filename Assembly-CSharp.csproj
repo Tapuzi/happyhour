@@ -52,16 +52,17 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\NetworkManagerHappyHour.cs" />
-     <Compile Include="Assets\Scripts\NetworkPlayer.cs" />
+     <Compile Include="Assets\Scripts\Bullet.cs" />
+     <Compile Include="Assets\Scripts\Zombie.cs" />
+     <Compile Include="Assets\Scripts\LevelManager.cs" />
+     <Compile Include="Assets\Scripts\Pickable.cs" />
+     <Compile Include="Assets\Scripts\WaveConfigSO.cs" />
      <Compile Include="Assets\Scripts\ZombieSpawner.cs" />
      <Compile Include="Assets\Scripts\Shooting.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
-     <Compile Include="Assets\Scripts\WaveConfigSO.cs" />
-     <Compile Include="Assets\Scripts\Bullet.cs" />
-     <Compile Include="Assets\Scripts\LevelManager.cs" />
-     <Compile Include="Assets\Scripts\Zombie.cs" />
-     <Compile Include="Assets\Scripts\Pickable.cs" />
+     <Compile Include="Assets\Scripts\NetworkManagerHappyHour.cs" />
+     <Compile Include="Assets\Scripts\EnemyProjectile.cs" />
+     <Compile Include="Assets\Scripts\NetworkPlayer.cs" />
      <None Include="Assets\Mirror\Version.txt" />
      <None Include="Assets\Mirror\Readme.txt" />
      <None Include="Assets\Mirror\Notice.txt" />

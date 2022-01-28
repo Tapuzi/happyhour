@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,10 +12,14 @@ public class PlayerMovement : MonoBehaviour
     private float moveLimiter = 0.6f;
 
     private float runSpeed = 6.5f;
+    private float crouchingSpeed = 3.0f;
     
     private Camera cam;
 
-    public void Start ()
+    private bool crouching = false;
+    private bool stunned = false;
+
+    public void Start()
     {
         body = GetComponent<Rigidbody2D>();
         cam = Camera.main;
@@ -24,18 +30,37 @@ public class PlayerMovement : MonoBehaviour
         // Gives a value between -1 and 1
         horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
         vertical = Input.GetAxisRaw("Vertical"); // -1 is down
+
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            FlipCrouching();
+        }
+    }
+
+    private void FlipCrouching()
+    {
+        crouching = (!crouching);
+        Debug.Log("Set crouching to " + crouching);
     }
 
     public void FixedUpdate()
     {
+        if (stunned)
+            return;
+            
         if (horizontal != 0 && vertical != 0) // Check for diagonal movement
         {
             // limit movement speed diagonally, so you move at 70% speed
             horizontal *= moveLimiter;
             vertical *= moveLimiter;
         } 
-
-        body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+        
+        if(!crouching)
+            body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+        else
+        {
+            body.velocity = new Vector2(horizontal * crouchingSpeed, vertical * crouchingSpeed);
+        }
         
         Vector3 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 		
@@ -60,5 +85,23 @@ public class PlayerMovement : MonoBehaviour
     public Transform GetTransform()
     {
         return GetComponent<Transform>();
+    }
+
+    public void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("EnemyProjectile") && !crouching)
+            StartCoroutine(Stun(other.gameObject.GetComponent<EnemyProjectile>().GetStunTime()));
+    }
+
+    private IEnumerator Stun(float time)
+    {
+        stunned = true;
+        yield return new WaitForSeconds(time);
+        stunned = false;
+    }
+
+    public bool IsCrouching()
+    {
+        return crouching;
     }
 }

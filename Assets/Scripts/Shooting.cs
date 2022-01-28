@@ -7,14 +7,15 @@ public class Shooting : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
 
-    private float bulletForce = 10f;
+    private float bulletForce = 15f;
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Fire1"))
+        if(Input.GetButtonDown("Fire1") && !Input.GetKeyDown(KeyCode.LeftControl))
         {
-            Shoot();
+            if(!FindObjectOfType<PlayerMovement>().IsCrouching())
+                Shoot();
         }
     }
 
