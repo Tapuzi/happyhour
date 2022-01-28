@@ -1,13 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7d135f74-7d01-490e-956f-cc7fa7797c9f" name="Changes" comment="added bullet prefab and script to vcs">
+    <list default="true" id="7d135f74-7d01-490e-956f-cc7fa7797c9f" name="Changes" comment="stuff">
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/ZombieSpawner.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/ZombieSpawner.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/WaveConfigSO.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/WaveConfigSO.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ZombieSpawner.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ZombieSpawner.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/PlayerSprite.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/PlayerSprite/arm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/PlayerSprite/arm.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/PlayerSprite/characterBlue (1).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/PlayerSprite/characterBlue (1).png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/PlayerSprite/leg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/PlayerSprite/leg.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HappyHour/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HappyHour/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bullet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Shooting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Shooting.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Sprite.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Sprite/arm.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Sprite/arm.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Sprite/characterBlue (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Sprite/characterBlue (1).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Sprite/leg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Sprite/leg.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +41,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/WaveConfigSO.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Library/SceneVisibilityState.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Prefabs/Bullet.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Shooting.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/obj/Debug/.NETFramework,Version=v4.7.1.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -62,10 +82,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="15616">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="15616" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -74,6 +94,9 @@
     </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\Amit\AppData\Roaming\Subversion</configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="7d135f74-7d01-490e-956f-cc7fa7797c9f" name="Changes" comment="" />
@@ -119,7 +142,13 @@
       <option name="presentableId" value="LOCAL‎00006" />
       <updated>1643324709466</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL‎00007" summary="stuff">
+      <created>1643362354196</created>
+      <option name="number" value="LOCAL‎00007" />
+      <option name="presentableId" value="LOCAL‎00007" />
+      <updated>1643362354196</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,7 +176,8 @@
     <MESSAGE value="Added temp player sprites" />
     <MESSAGE value="start work on firing mechanic" />
     <MESSAGE value="added bullet prefab and script to vcs" />
-    <option name="LAST_COMMIT_MESSAGE" value="added bullet prefab and script to vcs" />
+    <MESSAGE value="stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="stuff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
