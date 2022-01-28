@@ -13,15 +13,15 @@ public class WaveConfigSO : ScriptableObject
     
 
     [SerializeField] List<GameObject> zombiePrefabs;
-    [SerializeField] private List<GameObject> spawnPoints;
+    //[SerializeField] List<Transform> spawnPoints;
 
-    public IEnumerator SpawnAllEnemiesInWave()
+    public IEnumerator SpawnAllEnemiesInWave(List<Transform> spawnPoints)
     {
         for (int i = 0; i < zombieCount; i++)
         {
             int spawnPointIndex = Random.Range(0, spawnPointVariation);
             int zombieIndex = Random.Range(0, zombieVariationRange);
-            Instantiate(zombiePrefabs[zombieIndex], spawnPoints[spawnPointIndex].transform);
+            Instantiate(zombiePrefabs[zombieIndex], spawnPoints[spawnPointIndex]);
             float waitTime = Random.Range(minSpawnDelay, maxSpawnDelay);
             yield return new WaitForSeconds(waitTime);
         }

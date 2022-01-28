@@ -18,5 +18,7 @@ public class NetworkManagerHappyHour : NetworkManager
         
         player.SetDisplayName($"Player {numPlayers}");
         player.SetColor();
+
+        FindObjectOfType<ZombieSpawner>().SpawnEnemies();
     }
 }

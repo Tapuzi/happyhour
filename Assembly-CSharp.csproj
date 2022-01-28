@@ -67,6 +67,7 @@
      <None Include="Assets\Mirror\Readme.txt" />
      <None Include="Assets\Mirror\Notice.txt" />
      <None Include="Assets\Mirror\Plugins\Mono.Cecil\License.txt" />
+     <None Include="Assets\Graphics\Models\Animated Characters\License.txt" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.26f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
