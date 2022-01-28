@@ -57,8 +57,8 @@ public class PlayerMovement : MonoBehaviour
         // transform.LookAt(target.position, new Vector3(0, 0, -1));
     }
 
-    public Vector3 GetPosition()
+    public Transform GetTransform()
     {
-        return GetComponent<Transform>().position;
+        return GetComponent<Transform>();
     }
 }

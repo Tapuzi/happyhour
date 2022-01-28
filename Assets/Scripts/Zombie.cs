@@ -5,7 +5,7 @@ using UnityEngine;
 public class Zombie : MonoBehaviour
 {
     private PlayerMovement player;
-    private Vector3 playerPosition = Vector3.zero;
+    private Transform playerTransform;
     [SerializeField] private float speed = 4f;
     private Rigidbody2D rb;
     
@@ -21,25 +21,28 @@ public class Zombie : MonoBehaviour
     {
         if (player != null)
         {
-            playerPosition = player.GetPosition();
+            playerTransform = player.GetTransform();
+            FollowPlayer();
         }
         else
         {
-            playerPosition = Vector3.zero;
+            player = FindObjectOfType<PlayerMovement>();
         }
 
-        FollowPlayer();
+        
     }
 
     private void FollowPlayer()
     {
-        if (playerPosition == Vector3.zero)
+        if (playerTransform == null)
         {
             return;
         }
 
-        Vector3 pos = Vector3.MoveTowards(transform.position, playerPosition, speed * Time.fixedDeltaTime);
+        Vector3 pos = Vector3.MoveTowards(transform.position, playerTransform.position, speed * Time.fixedDeltaTime);
         rb.MovePosition(pos);
-        transform.LookAt(playerPosition);
+
+        Vector3 perpendicular = Vector3.Cross(transform.position-playerTransform.position,Vector3.forward);
+        transform.rotation = Quaternion.LookRotation(Vector3.forward, perpendicular);
     }
 }

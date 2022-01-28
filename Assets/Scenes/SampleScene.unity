@@ -450,10 +450,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2438582737629332375, guid: 1367a1d0a7cbcf94186e201f075b4a7d, type: 3}
-      propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3415781308490169788, guid: 1367a1d0a7cbcf94186e201f075b4a7d, type: 3}
       propertyPath: m_Name
       value: Zombie
@@ -468,7 +464,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6110609634240533901, guid: 1367a1d0a7cbcf94186e201f075b4a7d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -2.53
       objectReference: {fileID: 0}
     - target: {fileID: 6110609634240533901, guid: 1367a1d0a7cbcf94186e201f075b4a7d, type: 3}
       propertyPath: m_LocalPosition.z
