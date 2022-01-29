@@ -19,7 +19,9 @@ public class ZombieSpawner : NetworkBehaviour
     [SerializeField] private List<Transform> spawnPoints;
 
     void Update(){
-        if(NetworkPlayer.localPlayer != null)
+        if (NetworkPlayer.localPlayer != null)
+        {
+            Debug.Log("notnull");
             if(NetworkPlayer.localPlayer.isGameStart)
                 if(flag)
                 {
@@ -30,6 +32,8 @@ public class ZombieSpawner : NetworkBehaviour
                         StartCoroutine( SpawnEnemies() );
                     }
                 }
+        }
+            
     }
 
     public IEnumerator SpawnEnemies()

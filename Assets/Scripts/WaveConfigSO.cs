@@ -25,7 +25,9 @@ public class WaveConfigSO : ScriptableObject
             int spawnPointIndex = Random.Range(0, spawnPoints.Count);
             int zombieIndex = Random.Range(0, zombieVariationRange);
             //CmdSpawn(zombiePrefabs[zombieIndex],spawnPoints[spawnPointIndex]);            
-            GameObject zombie = Instantiate(zombiePrefabs[zombieIndex], spawnPoints[spawnPointIndex]);
+            GameObject zombie = Instantiate(zombiePrefabs[zombieIndex]);
+            zombie.transform.position = spawnPoints[spawnPointIndex].transform.position;
+            Debug.Log("spawn: " + spawnPoints[spawnPointIndex]);
             NetworkServer.Spawn(zombie);
 
             float waitTime = Random.Range(minSpawnDelay, maxSpawnDelay);
