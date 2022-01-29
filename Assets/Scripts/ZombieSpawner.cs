@@ -3,24 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using Mirror;
 
-public class ZombieSpawner : MonoBehaviour
+public class ZombieSpawner : NetworkBehaviour
 {
-    public static ZombieSpawner Instance;
+    //public static ZombieSpawner Instance
     //[Sepublic float distance;
 
-    void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            Instance = this;
-        }
-
-        StartCoroutine( SpawnEnemies() );
+    void Start()
+    {        
+        if(isServer)
+            StartCoroutine( SpawnEnemies() );
     }
     
     [SerializeField] private List<WaveConfigSO> waves;

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpawnDelay: 3
   minSpawnDelay: 0.1
-  zombieCount: 100
+  zombieCount: 1000
   zombieVariationRange: 0
   spawnPointVariation: 10
   zombiePrefabs:

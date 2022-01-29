@@ -8,6 +8,21 @@ TagManager:
   - Counter
   - EnemyProjectile
   - Counter2
+  - ItemPosition
+  - mortar
+  - whisk
+  - pineapple
+  - lemon
+  - wineWhite
+  - orange
+  - wineRed
+  - can
+  - mapPlane1
+  - mapPlane2
+  - camera1
+  - camera2
+  - spawn1
+  - spawn2
   layers:
   - Default
   - TransparentFX

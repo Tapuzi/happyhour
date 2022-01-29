@@ -5,17 +5,15 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody body;
-    [SerializeField] GameObject mapPlane;
-    [SerializeField] GameObject rayStart;
+    public GameObject mapPlane;
+    public Camera cam;
 
     private float horizontal;
     private float vertical;
     private float moveLimiter = 0.6f;
 
     private float runSpeed = 8f;
-    private float crouchingSpeed = 4.0f;
-    
-    private Camera cam;
+    private float crouchingSpeed = 4.0f;    
 
     private bool crouching = false;
     private bool stunned = false;
@@ -23,7 +21,6 @@ public class PlayerMovement : MonoBehaviour
     public void Start()
     {
         body = GetComponent<Rigidbody>();
-        cam = Camera.main;
     }
 
     public void Update()
@@ -35,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             FlipCrouching();
+
+            
         }
     }
 
@@ -45,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void FixedUpdate()
-    {
+    {        
         if (stunned)
             return;
             

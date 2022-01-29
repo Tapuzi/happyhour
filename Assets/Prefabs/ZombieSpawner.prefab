@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1195978450219578927}
   - component: {fileID: 594883322210993122}
+  - component: {fileID: 2422349370327901622}
   m_Layer: 0
   m_Name: ZombieSpawner
   m_TagString: Untagged
@@ -43,3 +44,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4304b224c6c546b4195eeec710ce7157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  waves:
+  - {fileID: 11400000, guid: 2223ed78a23089046a463625b4d56e36, type: 2}
+  - {fileID: 11400000, guid: cd5ce39fbea5d9545ba869c5aed51d18, type: 2}
+  - {fileID: 11400000, guid: dc542d243c05efb4a835de77caafa6ec, type: 2}
+  - {fileID: 11400000, guid: c90b39581f9ba99448e55a6aedf4a8b4, type: 2}
+  - {fileID: 11400000, guid: 2643d28a01232a94c9acd93f7df870fc, type: 2}
+  specialZombieList: []
+  spawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &2422349370327901622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6823321879811239751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: f8822e6f32c464f4989859bb5a46d11e
+  hasSpawned: 0

@@ -17,8 +17,9 @@ public class NetworkManagerHappyHour : NetworkManager
         NetworkPlayer player = conn.identity.GetComponent<NetworkPlayer>();
         
         player.SetDisplayName($"Player {numPlayers}");
+        //player.SetPlayerNum(numPlayers);
         player.SetColor();
 
-        FindObjectOfType<ZombieSpawner>().SpawnEnemies();
+        //FindObjectOfType<ZombieSpawner>().SpawnEnemies();
     }
 }

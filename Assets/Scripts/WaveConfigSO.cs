@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
 [CreateAssetMenu(menuName = "Wave Config", fileName = "New Wave Config")]
 public class WaveConfigSO : ScriptableObject
@@ -23,11 +24,13 @@ public class WaveConfigSO : ScriptableObject
         {
             int spawnPointIndex = Random.Range(0, spawnPointVariation);
             int zombieIndex = Random.Range(0, zombieVariationRange);
-            Instantiate(zombiePrefabs[zombieIndex], spawnPoints[spawnPointIndex]);
+            GameObject zombie = Instantiate(zombiePrefabs[zombieIndex], spawnPoints[spawnPointIndex]);
+            NetworkServer.Spawn(zombie);
             float waitTime = Random.Range(minSpawnDelay, maxSpawnDelay);
             yield return new WaitForSeconds(waitTime);
         }
         
         yield return new WaitForSeconds(delayForNext);
     }
+   
 }
