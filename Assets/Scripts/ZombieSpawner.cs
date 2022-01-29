@@ -33,7 +33,7 @@ public class ZombieSpawner : MonoBehaviour
         {
             StartCoroutine(currentWave.SpawnAllEnemiesInWave(spawnPoints));
         }
-    }
+    }   
     public void SpawnSpecialZombie(int index)
     {
         if (specialZombieList.Count >= index)

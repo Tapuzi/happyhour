@@ -13,16 +13,17 @@ public class CWaveConfigSO : ScriptableObject
     [SerializeField] int spawnPointVariation = 0;
     [SerializeField] List<RecipeSO> recipes = new List<RecipeSO>();
     [SerializeField] List<GameObject> customerPrefabs;
-    [SerializeField] private List<GameObject> spawnPoints;
+    //[SerializeField] private List<GameObject> spawnPoints;
 
-    public IEnumerator SpawnAllCustomersInWave()
+    public IEnumerator SpawnAllCustomersInWave(List<GameObject> spawnPoints)
     {
         int[] given = new int[] {0, 0, 0};
-        
+        Debug.Log("Started spawning");
         while (recipesDifficulty[0] + recipesDifficulty[1] + recipesDifficulty[2] - given[0] - given[1] - given[2] > 0)
         {
+            Debug.Log("spawning new");
             // Customer spawn
-            int spawnPointIndex = Random.Range(0, spawnPointVariation);
+            int spawnPointIndex = Random.Range(0, spawnPoints.Count);
             int customerIndex = Random.Range(0, customerPrefabs.Count);
             GameObject customer = Instantiate(customerPrefabs[customerIndex], spawnPoints[spawnPointIndex].transform);
             // Attach recipe
@@ -33,7 +34,7 @@ public class CWaveConfigSO : ScriptableObject
             } while (recipesDifficulty[recipeDifficulty] <= 0);
 
             var possibleRecipes = recipes.Where(r => r.difficulty == recipeDifficulty).Select(r => r).ToArray();
-            customer.GetComponent<PreparingRecipe>().recipe = possibleRecipes[Random.Range(0, possibleRecipes.Length)];
+            customer.GetComponent<PreparingRecipe>().SetRecipe(possibleRecipes[Random.Range(0, possibleRecipes.Length)]);
             given[recipeDifficulty] -= 1;
             // Wait for next
             float waitTime = Random.Range(minSpawnDelay, maxSpawnDelay);

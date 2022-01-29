@@ -6,5 +6,5 @@ using UnityEngine;
 public class RecipeSO : ScriptableObject
 {
     [SerializeField] public uint difficulty = 0;
-    [SerializeField] List<GameObject> requiredObjects;
+    [SerializeField] public List<GameObject> requiredObjects;
 }
