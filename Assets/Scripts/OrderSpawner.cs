@@ -31,6 +31,7 @@ public class OrderSpawner : MonoBehaviour
     {
         foreach (var currentWave in waves)
         {
+            Debug.Log("New orders wave incoming!");
             StartCoroutine(currentWave.SpawnAllCustomersInWave(spawnPoints));
         }
     }

@@ -36,6 +36,7 @@ public class ZombieSpawner : NetworkBehaviour
     {
         foreach (var currentWave in waves)
         {
+            Debug.Log("New enemies wave incoming!");
             yield return currentWave.SpawnAllEnemiesInWave(spawnPoints);
         }
 
