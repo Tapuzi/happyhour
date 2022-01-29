@@ -9,7 +9,7 @@ public class CWaveConfigSO : ScriptableObject
 {
     [SerializeField] float maxSpawnDelay = 5f;
     [SerializeField] float minSpawnDelay = 1f;
-    [SerializeField] private int[] recipesDifficulty = new []{0, 1, 2};  // Easy, medium hard recipies
+    [SerializeField] private int[] recipesDifficulty = new []{2, 1, 0};  // Easy, medium hard recipies
     [SerializeField] int spawnPointVariation = 0;
     [SerializeField] List<RecipeSO> recipes = new List<RecipeSO>();
     [SerializeField] List<GameObject> customerPrefabs;

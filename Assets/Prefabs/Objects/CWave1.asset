@@ -20,5 +20,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4062456a2e0b32249b2cbcc8e389cf0f, type: 2}
   - {fileID: 11400000, guid: d91cde64ee2989149a866fc7d34c7ccc, type: 2}
   - {fileID: 11400000, guid: a2e417a7742e56c49960fce62c1aad72, type: 2}
-  customerPrefabs: []
+  customerPrefabs:
+  - {fileID: 8764823657990771319, guid: 5c1bbae49072d424cb29544fb258b247, type: 3}
   spawnPoints: []
