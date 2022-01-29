@@ -9,13 +9,21 @@ public class Shooting : MonoBehaviour
 
     private float bulletForce = 20f;
 
+    public float fireRate = 0.5F;
+    private float nextFire = 0.0F;
+
     // Update is called once per frame
     void Update()
     {
         if(Input.GetButtonDown("Fire1") && !Input.GetKeyDown(KeyCode.LeftControl))
         {
             if(!FindObjectOfType<PlayerMovement>().IsCrouching())
-                Shoot();
+                if (Input.GetButton("Fire1") && Time.time > nextFire)
+                {
+                    nextFire = Time.time + fireRate;
+                    Shoot();
+                }
+           
         }
     }
 

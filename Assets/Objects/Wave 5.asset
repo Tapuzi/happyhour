@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a419136ab6be37d43b73eb8858b01ba9, type: 3}
-  m_Name: Wave 2
+  m_Name: Wave 5
   m_EditorClassIdentifier: 
-  maxSpawnDelay: 1
-  minSpawnDelay: 1
-  zombieCount: 15
+  maxSpawnDelay: 3
+  minSpawnDelay: 0.1
+  zombieCount: 100
   zombieVariationRange: 0
   spawnPointVariation: 10
   zombiePrefabs:

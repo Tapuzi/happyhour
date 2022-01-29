@@ -20,19 +20,24 @@ public class ZombieSpawner : MonoBehaviour
             Instance = this;
         }
 
-        SpawnEnemies();
+        StartCoroutine( SpawnEnemies() );
     }
     
     [SerializeField] private List<WaveConfigSO> waves;
     [SerializeField] private List<Zombie> specialZombieList;
     [SerializeField] private List<Transform> spawnPoints;
 
-    public void SpawnEnemies()
+
+
+    public IEnumerator SpawnEnemies()
     {
         foreach (var currentWave in waves)
         {
-            StartCoroutine(currentWave.SpawnAllEnemiesInWave(spawnPoints));
+            yield return currentWave.SpawnAllEnemiesInWave(spawnPoints);
         }
+
+   
+
     }
     public void SpawnSpecialZombie(int index)
     {

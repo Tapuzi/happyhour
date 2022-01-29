@@ -15,6 +15,8 @@ public class WaveConfigSO : ScriptableObject
     [SerializeField] List<GameObject> zombiePrefabs;
     //[SerializeField] List<Transform> spawnPoints;
 
+    [SerializeField] int delayForNext = 10;
+
     public IEnumerator SpawnAllEnemiesInWave(List<Transform> spawnPoints)
     {
         for (int i = 0; i < zombieCount; i++)
@@ -26,6 +28,6 @@ public class WaveConfigSO : ScriptableObject
             yield return new WaitForSeconds(waitTime);
         }
         
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(delayForNext);
     }
 }
