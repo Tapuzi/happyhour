@@ -12,9 +12,8 @@ public class PlayerMovement : MonoBehaviour
     private float vertical;
     private float moveLimiter = 0.6f;
 
-    private float runSpeed = 8f;
-    private float crouchingSpeed = 4.0f;    
-
+    [SerializeField] public float runSpeed = 8f;
+    [SerializeField] public float crouchingSpeed = 4.0f;
     private bool crouching = false;
     private bool stunned = false;
 

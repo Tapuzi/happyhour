@@ -7,9 +7,9 @@ using UnityEngine.Serialization;
 [CreateAssetMenu(menuName = "Customer wave config", fileName = "Customer wave config")]
 public class CWaveConfigSO : ScriptableObject
 {
-    [SerializeField] float maxSpawnDelay = 5f;
-    [SerializeField] float minSpawnDelay = 1f;
-    [SerializeField] private int[] recipesDifficulty = new []{2, 1, 0};  // Easy, medium hard recipies
+    [SerializeField] float maxSpawnDelay = 7f;
+    [SerializeField] float minSpawnDelay = 3f;
+    [SerializeField] private int[] recipesDifficulty = new []{1, 1, 0};  // Easy, medium hard recipies
     [SerializeField] List<RecipeSO> recipes = new List<RecipeSO>();
     [SerializeField] GameObject orderPrefab;
     //[SerializeField] private List<GameObject> spawnPoints;
@@ -40,7 +40,7 @@ public class CWaveConfigSO : ScriptableObject
             if (order.GetComponent<PreparingRecipe>()
                 .SetRecipe(possibleRecipes[Random.Range(0, possibleRecipes.Length)]))
             {
-                given[recipeDifficulty] -= 1;
+                given[recipeDifficulty] += 1;
             }
             // Wait for next
             float waitTime = Random.Range(minSpawnDelay, maxSpawnDelay);

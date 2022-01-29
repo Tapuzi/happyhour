@@ -41,8 +41,9 @@ public class PreparingRecipe : Interactable
     {
         foreach (var requiredObject in requiredObjects.Where(ro => ro != null))
         {
+            var heldItem = interact.GetHeldItem();
             // Remove item if possible
-            if (interact.GetHeldItem().CompareTag(requiredObject.tag))
+            if (heldItem != null && heldItem.CompareTag(requiredObject.tag))
             {
                 // Delete the item from player's hand (null for placeholder freeze position)
                 requiredObjects.Insert(requiredObjects.IndexOf(requiredObject), null);
