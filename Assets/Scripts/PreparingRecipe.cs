@@ -2,36 +2,67 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class PreparingRecipe : Interactable
 {
-    [SerializeField] public RecipeSO recipe;
+    [SerializeField] public RecipeSO myRecipe;
     [SerializeField] private List<GameObject> requiredObjects;
+    [SerializeField] public List<GameObject> ingridientPlaceholders;
     [SerializeField] public bool active = false;
 
 
-    public void SetRecipe(RecipeSO recipe)
+    public bool SetRecipe(RecipeSO recipe)
     {
-        requiredObjects = recipe.requiredObjects.ToList();
+        if (myRecipe == null)
+        {
+            myRecipe = recipe;
+            requiredObjects = recipe.requiredObjects.ToList();
+            RefreshPlaceholders();
+            return true;
+        }
+
+        return false;
     }
-    
+
+    void RefreshPlaceholders()
+    {
+        for (int i = 0; i < requiredObjects.Count && i < ingridientPlaceholders.Count; i++)
+        {
+            if (ingridientPlaceholders[i].transform.childCount > 0)
+                Destroy(ingridientPlaceholders[i].transform.GetChild(0).gameObject);
+            if (requiredObjects[i] != null)
+                Instantiate(requiredObjects[i], ingridientPlaceholders[i].transform);
+        }
+    }
 
     public override void Interact(PlayerInteract interact)
     {
-        foreach (var requiredObject in requiredObjects)
+        foreach (var requiredObject in requiredObjects.Where(ro => ro != null))
         {
+            // Remove item if possible
             if (interact.GetHeldItem().CompareTag(requiredObject.tag))
             {
+                // Delete the item from player's hand (null for placeholder freeze position)
+                requiredObjects.Insert(requiredObjects.IndexOf(requiredObject), null);
                 requiredObjects.Remove(requiredObject);
-                // Delete the item from player's hand
+                RefreshPlaceholders();
+                interact.RemoveItem();
                 break;
             }
         }
 
-        if (requiredObjects.Count == 0)
+        if (requiredObjects.Where(s => s != null).ToArray().Length == 0)
         {
-            Debug.Log("Money +10");
+            FinishRecipe();
         }
+    }
+
+    void FinishRecipe()
+    {
+        myRecipe = null;
+        Debug.Log("Money +10");
+        Destroy(gameObject);
     }
 }

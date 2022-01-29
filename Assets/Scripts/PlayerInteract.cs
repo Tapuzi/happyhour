@@ -41,4 +41,9 @@ public class PlayerInteract : MonoBehaviour
         return null;
     }
 
+    public void RemoveItem()
+    {
+        Destroy(itemParent.transform.GetChild(0).gameObject);
+    }
+
 }
