@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7d135f74-7d01-490e-956f-cc7fa7797c9f" name="Changes" comment="Worked on tile behavior damage &amp; fix">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.HappyHour/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HappyHour/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="7d135f74-7d01-490e-956f-cc7fa7797c9f" name="Changes" comment="fix counter breaks">
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/bar/tileAll.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/bar/tileAll.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/bar/tileDestroyA.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/bar/tileDestroyA.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/bar/tileDestroyB.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/bar/tileDestroyB.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/bar/tileDestroyC.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/bar/tileDestroyC.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/bar/tileWhole.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/bar/tileWhole.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Integration.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Integration.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BarHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BarHealth.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Zombie.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Zombie.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WaveConfigSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WaveConfigSO.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,6 +78,7 @@
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/UserSettings/EditorUserSettings.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LevelManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Scripts/PlayerMovement.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Scripts/BarHealth.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/WaveConfigSO.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Graphics/Models/Kitchen Set/kitchenCabinetUpperCorner.fbx.meta" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Amit/Documents/HappyHour/Assets/Graphics/Models/Kitchen Set/bear.fbx.meta" root0="SKIP_HIGHLIGHTING" />
@@ -244,7 +238,13 @@
       <option name="presentableId" value="LOCAL‎00015" />
       <updated>1643407134974</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL‎00016" summary="fix counter breaks">
+      <created>1643413094310</created>
+      <option name="number" value="LOCAL‎00016" />
+      <option name="presentableId" value="LOCAL‎00016" />
+      <updated>1643413094310</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -281,36 +281,24 @@
     <MESSAGE value="Added zombie prefab and movement behavior" />
     <MESSAGE value="Zombie &amp; bar changes" />
     <MESSAGE value="Worked on tile behavior damage &amp; fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Worked on tile behavior damage &amp; fix" />
+    <MESSAGE value="fix counter breaks" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix counter breaks" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Zombie.cs</url>
-          <line>54</line>
-          <properties documentPath="C:\Users\Amit\Documents\HappyHour\Assets\Scripts\Zombie.cs" initialLine="54" containingFunctionPresentation="method 'OnCollisionEnter'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/WaveConfigSO.cs</url>
+          <line>19</line>
+          <properties documentPath="C:\Users\Amit\Documents\HappyHour\Assets\Scripts\WaveConfigSO.cs" initialLine="19" containingFunctionPresentation="method 'SpawnAllEnemiesInWave'">
             <startOffsets>
-              <option value="1364" />
+              <option value="638" />
             </startOffsets>
             <endOffsets>
-              <option value="1406" />
+              <option value="675" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Zombie.cs</url>
-          <line>67</line>
-          <properties documentPath="C:\Users\Amit\Documents\HappyHour\Assets\Scripts\Zombie.cs" initialLine="67" containingFunctionPresentation="method 'OnCollisionStay'">
-            <startOffsets>
-              <option value="1666" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1699" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="17" />
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

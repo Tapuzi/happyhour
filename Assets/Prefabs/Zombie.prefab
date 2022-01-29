@@ -452,7 +452,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!114 &6441346389466358343
 MonoBehaviour:
@@ -467,6 +467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
+  stopMovement: 0
 --- !u!136 &4188956902039133012
 CapsuleCollider:
   m_ObjectHideFlags: 0

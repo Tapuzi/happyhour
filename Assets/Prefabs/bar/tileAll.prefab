@@ -55,6 +55,7 @@ MonoBehaviour:
   - {fileID: 4790516389670491281}
   - {fileID: 7701713875066528443}
   - {fileID: 2826319537796978571}
+  damageTick: 1.5
 --- !u!65 &5223845185100353834
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -66,8 +67,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3, y: 4, z: 3}
-  m_Center: {x: 0, y: 2, z: 0}
+  m_Size: {x: 1, y: 4, z: 3}
+  m_Center: {x: 1, y: 1.9999998, z: 0}
 --- !u!1001 &2181857517176463769
 PrefabInstance:
   m_ObjectHideFlags: 0

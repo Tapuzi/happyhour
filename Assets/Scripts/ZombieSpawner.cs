@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 public class ZombieSpawner : MonoBehaviour
 {
     public static ZombieSpawner Instance;
+    //[Sepublic float distance;
 
     void Awake()
     {
@@ -18,6 +19,8 @@ public class ZombieSpawner : MonoBehaviour
         {
             Instance = this;
         }
+
+        SpawnEnemies();
     }
     
     [SerializeField] private List<WaveConfigSO> waves;
