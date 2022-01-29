@@ -58,8 +58,6 @@ public class Zombie : MonoBehaviour
             Destroy(other.gameObject);
             LevelManager.Instance.GameOver();
         }
-
-        
     }
 
     private void OnCollisionStay(Collision other)

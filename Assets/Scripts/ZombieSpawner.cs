@@ -36,9 +36,10 @@ public class ZombieSpawner : MonoBehaviour
             yield return currentWave.SpawnAllEnemiesInWave(spawnPoints);
         }
 
-   
-
     }
+
+     
+
     public void SpawnSpecialZombie(int index)
     {
         if (specialZombieList.Count >= index)

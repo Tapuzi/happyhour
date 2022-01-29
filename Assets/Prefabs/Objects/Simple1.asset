@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Simple1
   m_EditorClassIdentifier: 
   difficulty: 0
-  requiredObjects: []
+  requiredObjects:
+  - {fileID: 1248021726004230322, guid: ccc52d81ee1eeee48979ac3d51c7eeec, type: 3}
+  - {fileID: 1130743869002686419, guid: 5b2a2232514050f41a53b4f9c279ddb5, type: 3}
