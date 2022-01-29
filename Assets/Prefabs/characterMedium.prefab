@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2083287391
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2083287392}
+  m_Layer: 0
+  m_Name: ItemPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2083287392
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083287391}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.5415306, y: 2.214, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3331501329258501072}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &76165727819363685
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,12 +461,13 @@ Transform:
   m_GameObject: {fileID: 2697671992097737066}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 98.5, y: 0, z: -0.04}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 7739803946779859534}
   - {fileID: 5245178199043023594}
   - {fileID: 1367306000580861711}
   - {fileID: 6329826695478998828}
+  - {fileID: 2083287392}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -469,7 +500,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapPlane: {fileID: 0}
-  rayStart: {fileID: 0}
+  cam: {fileID: 0}
+  runSpeed: 8
+  crouchingSpeed: 4
 --- !u!114 &6818321444211608577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -482,8 +515,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8cca610702247babe4ab6565c50d422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   firePoint: {fileID: 1367306000580861711}
   bulletPrefab: {fileID: 9128919863475894133, guid: 5f9798e31e580a34f90dac91409a4d49, type: 3}
+  fireRate: 0.25
 --- !u!114 &-1282526307660894327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -497,7 +533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemParent: {fileID: 0}
-  heldItem: {fileID: 0}
+  interactCollider: {fileID: 0}
 --- !u!1 &2915349909134609289
 GameObject:
   m_ObjectHideFlags: 0
@@ -2093,7 +2129,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.5, y: 5, z: 2.5}
+  m_Size: {x: 1.5, y: 5, z: 1.5}
   m_Center: {x: 0, y: 2, z: 2.93}
 --- !u!1 &8979621000516584733
 GameObject:
