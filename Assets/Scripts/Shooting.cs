@@ -18,7 +18,7 @@ public class Shooting : NetworkBehaviour
     {
         if(isLocalPlayer)
             if(Input.GetButtonDown("Fire1") && !Input.GetKeyDown(KeyCode.LeftControl))
-            {
+            {                
                 if(!FindObjectOfType<PlayerMovement>().IsCrouching())
                     if (Input.GetButton("Fire1") && Time.time > nextFire)
                     {

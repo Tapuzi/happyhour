@@ -10,17 +10,27 @@ public class ZombieSpawner : NetworkBehaviour
     //public static ZombieSpawner Instance
     //[Sepublic float distance;
 
-    void Start()
-    {        
-        if(isServer)
-            StartCoroutine( SpawnEnemies() );
-    }
+    public bool flag = true;
+
+
     
     [SerializeField] private List<WaveConfigSO> waves;
     [SerializeField] private List<Zombie> specialZombieList;
     [SerializeField] private List<Transform> spawnPoints;
 
-
+    void Update(){
+        if(NetworkPlayer.localPlayer != null)
+            if(NetworkPlayer.localPlayer.isGameStart)
+                if(flag)
+                {
+                    flag = false;      
+                    if(isServer)
+                    {              
+                        print("start spwan");
+                        StartCoroutine( SpawnEnemies() );
+                    }
+                }
+    }
 
     public IEnumerator SpawnEnemies()
     {

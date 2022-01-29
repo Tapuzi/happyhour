@@ -7,23 +7,26 @@ public class NetworkPlayer : NetworkBehaviour
 {
         [SyncVar] [SerializeField] private string displayName = "MissingName";
         [SyncVar(hook=nameof(HandleDisplayColorUpdated))] [SerializeField] private Color color = Color.black;
-        [SyncVar] [SerializeField] private int PlayerNum;
+        [SerializeField] private int clientNum = -1;
         
+        
+
         public List<MonoBehaviour> componetsToEnableInLocal;
         
 
     #region Server
+        [Server]
+        public void SetPlayerNum(int num)
+        {
+            clientNum = num;
+        }
+
+        
 
         [Server]
         public void SetDisplayName(string newDisplayName)
         {
                 displayName = newDisplayName;
-        }
-
-        [Server]
-        public void SetPlayerNum(int num)
-        {
-            PlayerNum = num;
         }
 
         [Server]
@@ -35,6 +38,7 @@ public class NetworkPlayer : NetworkBehaviour
         [Command]
         private void CmdSetDisplayName(string newDisplayName)
         {
+            print("CmdSetDisplayName");
                 RpcLogNewName(newDisplayName);
                 
                 SetDisplayName(newDisplayName);
@@ -42,22 +46,68 @@ public class NetworkPlayer : NetworkBehaviour
 
 
     
+        /*[Command]
+        void CmdNumMeID(uint netId)
+        {
+            //print("CmdNumMeID netId is "+netId +" PlayerNum is "+clientNum);
+            RpcNumMeID(netId,clientNum);
+        }*/
+
+        [Command]
+        void CmdStartGame(int t)
+        {
+            print("server indication game start");
+            RpcStartGame(t);
+        }
+
+       
 
     #endregion
 
     #region Client
 
+    public static NetworkPlayer localPlayer;
 
+    public bool isGameStart = false;
 
     public override void OnStartClient()
     {
-        /*if (isLocalPlayer)
-        {
 
-            print("netId is "+netId);
-            if (netId == 1)//first player
+        /*if (isLocalPlayer){
+            CmdNumMeID(netId);            
+        }*/
+
+
+        int t =  GameObject.FindGameObjectsWithTag("Player").Length;
+        print("OnStartClient have "+t+" Player and isLocalPlayer " + isLocalPlayer);
+
+        if(isLocalPlayer)
+        {
+            localPlayer = this;
+            
+            if(t == 2)
             {
-                print("is player 1");
+                StartGame(t);
+                CmdStartGame(t);
+            }
+        }
+    }
+
+    [ClientRpc]
+    private void RpcStartGame(int t)
+    {
+        print("isLocalPlayer "+isLocalPlayer+" t "+t);
+        if(!isLocalPlayer && t==2)
+                
+            localPlayer.StartGame(1);
+        
+    }
+
+    private void StartGame(int t){
+        print("RpcStartGame "+gameObject.name);
+         if (t == 1)//first player
+            {
+                print("is player 1 start game");
                 GameObject mapPlane = GameObject.FindWithTag("mapPlane1");
                 Camera cam = GameObject.FindWithTag("camera1").GetComponent<Camera>();
 
@@ -69,9 +119,9 @@ public class NetworkPlayer : NetworkBehaviour
                 transform.position = spawn.position;
 
             }
-            else if (netId == 2)//second player
+        else if (t == 2)//second player
             {
-                print("is player 2");
+                print("is player 2 start game");
                 GameObject mapPlane = GameObject.FindWithTag("mapPlane2");
                 Camera cam = GameObject.FindWithTag("camera2").GetComponent<Camera>();
 
@@ -82,16 +132,12 @@ public class NetworkPlayer : NetworkBehaviour
                 Transform spawn = GameObject.FindWithTag("spawn2").transform;
                 transform.position = spawn.position;
             }
-            else
-                Debug.LogError("only 2 players!!!!!");
-
-
-            foreach (var componets in componetsToEnableInLocal)
-            {
+        print("isGameStart true");
+        isGameStart = true;
+        foreach (var componets in componetsToEnableInLocal)
+        {
                 componets.enabled = true;
-            }
-        }*/
-
+        }
     }
 
     private void HandleDisplayColorUpdated(Color oldColor, Color newColor)

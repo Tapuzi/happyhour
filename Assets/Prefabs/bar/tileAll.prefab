@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1364078204248671866}
   - component: {fileID: 3122667906542169442}
   - component: {fileID: 5223845185100353834}
+  - component: {fileID: 6209217260251883558}
   m_Layer: 0
   m_Name: tileAll
   m_TagString: Counter
@@ -69,6 +70,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 4, z: 3}
   m_Center: {x: 1, y: 1.9999998, z: 0}
+--- !u!114 &6209217260251883558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7422123011854337144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 65920a63d4c3e2f4b93ac2749c9c3488
+  hasSpawned: 0
 --- !u!1001 &2181857517176463769
 PrefabInstance:
   m_ObjectHideFlags: 0

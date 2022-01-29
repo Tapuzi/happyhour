@@ -15,8 +15,12 @@ public class NetworkManagerHappyHour : NetworkManager
         base.OnServerAddPlayer(conn);
 
         NetworkPlayer player = conn.identity.GetComponent<NetworkPlayer>();
+
+        
+        
         
         player.SetDisplayName($"Player {numPlayers}");
+        player.SetPlayerNum(numPlayers);
         //player.SetPlayerNum(numPlayers);
         player.SetColor();
 
