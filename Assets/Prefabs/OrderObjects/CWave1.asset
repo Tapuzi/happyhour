@@ -14,12 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpawnDelay: 5
   minSpawnDelay: 1
-  recipesDifficulty: 020000000100000000000000
-  spawnPointVariation: 0
-  recipes:
-  - {fileID: 11400000, guid: 4062456a2e0b32249b2cbcc8e389cf0f, type: 2}
-  - {fileID: 11400000, guid: d91cde64ee2989149a866fc7d34c7ccc, type: 2}
-  - {fileID: 11400000, guid: a2e417a7742e56c49960fce62c1aad72, type: 2}
-  customerPrefabs:
-  - {fileID: 2491690693435485834, guid: a2fb3b46ecad9fd4b9b1d9b6f03f4063, type: 3}
-  spawnPoints: []
+  minItemsInOrder: 2
+  maxItemsInOrder: 2
+  numOrders: 5
+  orderPrefab: {fileID: 2491690693435485834, guid: a2fb3b46ecad9fd4b9b1d9b6f03f4063, type: 3}

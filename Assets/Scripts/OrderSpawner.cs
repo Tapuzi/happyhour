@@ -34,6 +34,10 @@ public class OrderSpawner : MonoBehaviour
             Debug.Log("New orders wave incoming!");
             StartCoroutine(currentWave.SpawnAllCustomersInWave(spawnPoints));
         }
+
+
+
+        //wait to next wave
     }
     public void SpawnSpecialZombie(int index)
     {

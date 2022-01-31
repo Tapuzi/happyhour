@@ -232,6 +232,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myRecipe: {fileID: 0}
   requiredObjects: []
+  items:
+  - {fileID: 4509765907186135839, guid: 62d091f06eb9b72489fed625970cde17, type: 3}
+  - {fileID: 1248021726004230322, guid: ccc52d81ee1eeee48979ac3d51c7eeec, type: 3}
+  - {fileID: 2435887584996225693, guid: bc80fb1b05eb44549a512149f24c0f15, type: 3}
+  - {fileID: 2331971063017769883, guid: 57c5a574d4734764a97870672cb3dd30, type: 3}
+  - {fileID: 5839888778164533553, guid: 727a301b4ae097c4f8d41e62dde57bc5, type: 3}
+  - {fileID: 8403293989111970322, guid: 2a255e0684bbadc48b88eb66922b68fe, type: 3}
+  - {fileID: 1555896797964760258, guid: 3cbb1ffbf42bd604f8aaa63f63d3eba3, type: 3}
+  - {fileID: 1130743869002686419, guid: 5b2a2232514050f41a53b4f9c279ddb5, type: 3}
   ingridientPlaceholders:
   - {fileID: 4903378952757931009}
   - {fileID: 133483126394744172}

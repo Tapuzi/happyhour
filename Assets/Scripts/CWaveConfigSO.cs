@@ -9,39 +9,38 @@ public class CWaveConfigSO : ScriptableObject
 {
     [SerializeField] float maxSpawnDelay = 7f;
     [SerializeField] float minSpawnDelay = 3f;
-    [SerializeField] private int[] recipesDifficulty = new []{1, 1, 0};  // Easy, medium hard recipies
-    [SerializeField] List<RecipeSO> recipes = new List<RecipeSO>();
+    //recipe difficulty is number items in recipe.
+    [SerializeField] public int minItemsInOrder = 2;
+    [SerializeField] public int maxItemsInOrder = 2;
+    [SerializeField] public int numOrders = 5;
     [SerializeField] GameObject orderPrefab;
-    //[SerializeField] private List<GameObject> spawnPoints;
 
     public IEnumerator SpawnAllCustomersInWave(List<GameObject> spawnPoints)
     {
+
+        //GameObject order = Instantiate(orderPrefab, spawnPoints[0].transform);
+        //if (order.GetComponent<PreparingRecipe>().SetRecipe(recipes[0]))
+    
+
         int[] given = new int[] {0, 0, 0};
         Debug.Log("Spawning recipes: Started");
         // While there are still recipes to spawn
-        while (recipesDifficulty.Sum() - given.Sum() > 0)
+        for (int i=0; i < numOrders;i++)
         {
             Debug.Log("Spawning recipes: Spawning new");
             // Customer spawn
-            GameObject[] possibleSpawn = spawnPoints.Where(sp => sp.transform.childCount == 0).ToArray();
+            GameObject[] possibleSpawn = spawnPoints.Where(sp => sp.transform.childCount == 0).ToArray();//Spawn when not have order
             Debug.Log(possibleSpawn.Length + " possible recipe spawn location");
             if (possibleSpawn.Length == 0)  
                 break;
             int spawnPointIndex = Random.Range(0, possibleSpawn.Length);
+
             GameObject order = Instantiate(orderPrefab, possibleSpawn[spawnPointIndex].transform);
             // Attach recipe
-            int recipeDifficulty;
-            do
-            {
-                recipeDifficulty = Random.Range(0, 2);
-            } while (recipesDifficulty[recipeDifficulty] <= 0);
 
-            var possibleRecipes = recipes.Where(r => r.difficulty == recipeDifficulty).Select(r => r).ToArray();
-            if (order.GetComponent<PreparingRecipe>()
-                .SetRecipe(possibleRecipes[Random.Range(0, possibleRecipes.Length)]))
-            {
-                given[recipeDifficulty] += 1;
-            }
+            order.GetComponent<PreparingRecipe>().SetRecipe(Random.Range(minItemsInOrder, maxItemsInOrder));
+
+
             // Wait for next
             float waitTime = Random.Range(minSpawnDelay, maxSpawnDelay);
             yield return new WaitForSeconds(waitTime);

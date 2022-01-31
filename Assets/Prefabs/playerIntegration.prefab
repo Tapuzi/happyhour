@@ -534,6 +534,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3875847020877404355}
   - component: {fileID: 1425731136689700842}
+  - component: {fileID: 6912270814821731973}
   m_Layer: 0
   m_Name: InteractSpace
   m_TagString: Untagged
@@ -568,6 +569,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.5, y: 5, z: 2.5}
   m_Center: {x: 0, y: 2, z: 2.93}
+--- !u!114 &6912270814821731973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499060472786318045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10d57bcc333a4981bb3faac8fea82eca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colliders:
+  - {fileID: 1425731136689700842}
 --- !u!1 &2202203294360005362
 GameObject:
   m_ObjectHideFlags: 0
@@ -1274,8 +1289,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d027bbf280eb47b3a27fea8538fe1684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemParent: {fileID: 0}
-  interactCollider: {fileID: 0}
+  itemParent: {fileID: 1216534934491985663}
+  interactCollider: {fileID: 6912270814821731973}
 --- !u!114 &-4477914130071832782
 MonoBehaviour:
   m_ObjectHideFlags: 0

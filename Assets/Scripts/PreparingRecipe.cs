@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,22 +9,29 @@ public class PreparingRecipe : Interactable
 {
     [SerializeField] public RecipeSO myRecipe;
     [SerializeField] private List<GameObject> requiredObjects;
+    [SerializeField] public List<GameObject> items;
     [SerializeField] public List<GameObject> ingridientPlaceholders;
     [SerializeField] public bool active = false;
 
 
-    public bool SetRecipe(RecipeSO recipe)
+    public bool SetRecipe(int numItem)
     {
         if (myRecipe == null)
         {
-            myRecipe = recipe;
-            requiredObjects = recipe.requiredObjects.ToList();
+            print("numItem " + numItem);
+
+            //select random objects from items objects
+            requiredObjects = items.OrderBy(s => Random.Range(0f,1f)).Take(numItem).ToList();
+            
             RefreshPlaceholders();
             return true;
         }
 
         return false;
     }
+
+
+    
 
     void RefreshPlaceholders()
     {

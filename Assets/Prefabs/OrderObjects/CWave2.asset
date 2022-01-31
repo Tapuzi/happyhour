@@ -15,5 +15,7 @@ MonoBehaviour:
   maxSpawnDelay: 7
   minSpawnDelay: 3
   recipesDifficulty: 010000000100000000000000
-  recipes: []
-  orderPrefab: {fileID: 0}
+  recipes:
+  - {fileID: 11400000, guid: 4062456a2e0b32249b2cbcc8e389cf0f, type: 2}
+  - {fileID: 11400000, guid: d91cde64ee2989149a866fc7d34c7ccc, type: 2}
+  orderPrefab: {fileID: 2491690693435485834, guid: a2fb3b46ecad9fd4b9b1d9b6f03f4063, type: 3}
