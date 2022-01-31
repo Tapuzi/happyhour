@@ -45,8 +45,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - {fileID: 11400000, guid: 6cc7f041bfbdbec428e21a98df2c22c5, type: 2}
-  - {fileID: 11400000, guid: 04e2f1e86b619e04e9771534a024223f, type: 2}
-  - {fileID: 11400000, guid: 812db54a28d2b224081b5decbb15e44b, type: 2}
+  - {fileID: 11400000, guid: 210b194b4417cca45a5158e76a72085e, type: 2}
+  - {fileID: 11400000, guid: 7b8365d884c5233408bb8e63bd77c991, type: 2}
+  - {fileID: 11400000, guid: b90ca8b2c9f5de04782fca4fa75e8351, type: 2}
+  - {fileID: 11400000, guid: 5d92fd2cc47d77d42911ff74aa0c7c89, type: 2}
+  - {fileID: 11400000, guid: 0f7cbba2e751db9499cf6697f83da394, type: 2}
   spawnPoints:
   - {fileID: 0}
   - {fileID: 0}

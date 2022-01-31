@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3534d588f755fd346aee9a274080bf5f, type: 3}
+  m_Name: CWave 2
+  m_EditorClassIdentifier: 
+  maxSpawnDelay: 3
+  minSpawnDelay: 1
+  recipes:
+  - {fileID: 11400000, guid: ab5b4568d04679e43b12be9f4d4ba652, type: 2}
+  - {fileID: 11400000, guid: 4062456a2e0b32249b2cbcc8e389cf0f, type: 2}
+  - {fileID: 11400000, guid: 639586809cd37324e9665d249af1d6d1, type: 2}
+  - {fileID: 11400000, guid: 6407791e04ee8fd4bb142bff26ae74ea, type: 2}
+  - {fileID: 11400000, guid: 1b3ee594a357b4643adc58862739d8a4, type: 2}
+  orderPrefab: {fileID: 2491690693435485834, guid: a2fb3b46ecad9fd4b9b1d9b6f03f4063, type: 3}

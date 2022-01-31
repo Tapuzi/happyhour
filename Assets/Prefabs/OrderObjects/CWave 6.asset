@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3534d588f755fd346aee9a274080bf5f, type: 3}
+  m_Name: CWave 6
+  m_EditorClassIdentifier: 
+  maxSpawnDelay: 3
+  minSpawnDelay: 1
+  recipes:
+  - {fileID: 11400000, guid: 79361ff9f46b7044f9f19443c2033549, type: 2}
+  - {fileID: 11400000, guid: b8bb71cad69692e41856abc464f3134d, type: 2}
+  - {fileID: 11400000, guid: e4048df24a06c69489b692db740dca5e, type: 2}
+  - {fileID: 11400000, guid: 83635100fde293240a747e542c493798, type: 2}
+  - {fileID: 11400000, guid: d35ffbea89f097749b46a8e139cf4f42, type: 2}
+  - {fileID: 11400000, guid: 6d67279c409268e4ba50c6e719733f60, type: 2}
+  - {fileID: 11400000, guid: 8116ce06befe702409d3d36d53fc2dc6, type: 2}
+  - {fileID: 11400000, guid: cf8c82b9eb0aff54ebef46d069046a92, type: 2}
+  - {fileID: 11400000, guid: 3833ebb3287d9174eb319b31c8daf19b, type: 2}
+  - {fileID: 11400000, guid: 28556b758fc6d05409b4b6a39a7a3386, type: 2}
+  - {fileID: 11400000, guid: f7d0203fde93d92449f82ebbf5345923, type: 2}
+  - {fileID: 11400000, guid: 78b61988aa97f15479b2c6c28c597716, type: 2}
+  - {fileID: 11400000, guid: 5825fd5485445eb4983485d6998c7951, type: 2}
+  - {fileID: 11400000, guid: b5e6118a8c9701f4ebddcc73780d5115, type: 2}
+  - {fileID: 11400000, guid: 7d44a6e93b197cb4bad5e443ac6ae034, type: 2}
+  - {fileID: 11400000, guid: e02766f6a7435544d8fa38e156cbd359, type: 2}
+  - {fileID: 11400000, guid: ee4011385d540c748844398bed5ad50c, type: 2}
+  - {fileID: 11400000, guid: 0996d38eeb1256f4fa6a0b4eadc97d9f, type: 2}
+  - {fileID: 11400000, guid: 6007f3627078978418bd3242cfb35365, type: 2}
+  - {fileID: 11400000, guid: 73741f0f086f9564fb069585aeea762a, type: 2}
+  - {fileID: 11400000, guid: 1b3ee594a357b4643adc58862739d8a4, type: 2}
+  - {fileID: 11400000, guid: 6407791e04ee8fd4bb142bff26ae74ea, type: 2}
+  - {fileID: 11400000, guid: 4b778f97ab2ab9a41aaca2520e0eac5f, type: 2}
+  - {fileID: 11400000, guid: b480499093a64ee468c71f035a258b2e, type: 2}
+  - {fileID: 11400000, guid: 4062456a2e0b32249b2cbcc8e389cf0f, type: 2}
+  - {fileID: 11400000, guid: 639586809cd37324e9665d249af1d6d1, type: 2}
+  - {fileID: 11400000, guid: ab5b4568d04679e43b12be9f4d4ba652, type: 2}
+  orderPrefab: {fileID: 2491690693435485834, guid: a2fb3b46ecad9fd4b9b1d9b6f03f4063, type: 3}

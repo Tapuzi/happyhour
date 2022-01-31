@@ -51,7 +51,7 @@ public class CWaveConfigSO : ScriptableObject
             yield return new WaitForSeconds(waitTime);
         }
         
-        yield return new WaitForSeconds(0);
+        
     }
 	
 }
