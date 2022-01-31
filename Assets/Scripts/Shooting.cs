@@ -33,14 +33,20 @@ public class Shooting : NetworkBehaviour
     void CmdShoot()
     {
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        NetworkServer.Spawn(bullet);  
+        NetworkServer.Spawn(bullet,gameObject);  
+        //NetworkServer.Spawn(bullet);
         RpcForceBullet(bullet);     
     }
 
     [ClientRpc]
     public void RpcForceBullet(GameObject bullet)
     {
+        
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         rb.AddForce(firePoint.forward * bulletForce, ForceMode.Impulse);
+        //run both clients.
+        //not networkTransform use
+        //the object in same position in both client becuse of determination.
+
     }
 }

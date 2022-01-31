@@ -18,17 +18,14 @@ public class WaveConfigSO : ScriptableObject
 
     [SerializeField] int delayForNext = 10;
 
-    public IEnumerator SpawnAllEnemiesInWave(List<Transform> spawnPoints)
+    public IEnumerator ServerSpawnAllEnemiesInWave(List<Transform> spawnPoints, GameObject playerToFollow)
     {
         for (int i = 0; i < zombieCount; i++)
         {
             int spawnPointIndex = Random.Range(0, spawnPoints.Count);
             int zombieIndex = Random.Range(0, zombieVariationRange);
-            //CmdSpawn(zombiePrefabs[zombieIndex],spawnPoints[spawnPointIndex]);            
-            GameObject zombie = Instantiate(zombiePrefabs[zombieIndex]);
-            zombie.transform.position = spawnPoints[spawnPointIndex].transform.position;
-            Debug.Log("spawn: " + spawnPoints[spawnPointIndex]);
-            NetworkServer.Spawn(zombie);
+            ServerSpawn(zombiePrefabs[zombieIndex],spawnPoints[spawnPointIndex], playerToFollow);
+            
 
             float waitTime = Random.Range(minSpawnDelay, maxSpawnDelay);
             yield return new WaitForSeconds(waitTime);
@@ -38,11 +35,13 @@ public class WaveConfigSO : ScriptableObject
     }
 
 
-    /*[Command]
-    void CmdSpawn(GameObject a,Transform b)
+    
+    [Server]
+    void ServerSpawn(GameObject zombiePrefab, Transform spawnPoint, GameObject playerToFollow)
     {
-        GameObject zombie = Instantiate(a, b);
+        GameObject zombie = Instantiate(zombiePrefab, spawnPoint.position, spawnPoint.rotation);
+        zombie.GetComponent<Zombie>().player = playerToFollow.GetComponent<PlayerMovement>();
         NetworkServer.Spawn(zombie);
-    }*/
+    }
    
 }

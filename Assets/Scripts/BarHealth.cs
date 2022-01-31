@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using Mirror;
 
 
-public class BarHealth : MonoBehaviour
+public class BarHealth : NetworkBehaviour
 {
     public int maxHp = 3;
     public int currentHp = 3;
@@ -13,8 +14,8 @@ public class BarHealth : MonoBehaviour
     bool flag = true;
     
     
-    
-    public void Damage(Zombie attacker)
+    [Server]
+    public void ServerDamage(Zombie attacker)
     {
         if (!flag)
             return;
@@ -29,19 +30,21 @@ public class BarHealth : MonoBehaviour
         yield return new WaitForSeconds(damageTick);
         flag = true;
         currentHp -= 1;
-        UpdateSkin(currentHp);
+        RpcUpdateSkin(currentHp);
         if (currentHp == 0)
         {
-            Break(attacker);
+            RpcBreak();
+            attacker.stopMovement = false;
             //LevelManager.Instance.DestroyFurniture(this.gameObject);
         }
     }
 
-    public void Break(Zombie attacker)
+    [ClientRpc]
+    public void RpcBreak()
     {
         this.tag = "Counter2";
         this.gameObject.GetComponent<Collider>().enabled = false;
-        attacker.stopMovement = false;
+        
     }
 
     public void Fix()
@@ -53,10 +56,11 @@ public class BarHealth : MonoBehaviour
             FixFromBroken();
 
         currentHp++;
-        UpdateSkin(currentHp);
+        RpcUpdateSkin(currentHp);
     }
 
-    private void UpdateSkin(int skinIndex)
+    [ClientRpc]
+    private void RpcUpdateSkin(int skinIndex)
     {
         for(int i = 0; i < skins.Count; i++)
         {

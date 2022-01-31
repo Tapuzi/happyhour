@@ -10,49 +10,40 @@ public class ZombieSpawner : NetworkBehaviour
     //public static ZombieSpawner Instance
     //[Sepublic float distance;
 
-    public bool flag = true;
-
 
     
     [SerializeField] private List<WaveConfigSO> waves;
     [SerializeField] private List<Zombie> specialZombieList;
     [SerializeField] private List<Transform> spawnPoints;
 
-    void Update(){
-        if (NetworkPlayer.localPlayer != null)
-        {
-            Debug.Log("notnull");
-            if(NetworkPlayer.localPlayer.isGameStart)
-                if(flag)
-                {
-                    flag = false;      
-                    if(isServer)
-                    {              
-                        print("start spwan");
-                        StartCoroutine( SpawnEnemies() );
-                    }
-                }
-        }
-            
+    [HideInInspector]
+    public GameObject holdPlayer;
+
+
+    [Server]
+    public void ServerStartGame()
+    {
+        StartCoroutine(ServerSpawnEnemies());
     }
 
-    public IEnumerator SpawnEnemies()
+
+    public IEnumerator ServerSpawnEnemies()
     {
         foreach (var currentWave in waves)
         {
             Debug.Log("New enemies wave incoming!");
-            yield return currentWave.SpawnAllEnemiesInWave(spawnPoints);
+            yield return currentWave.ServerSpawnAllEnemiesInWave(spawnPoints, holdPlayer);
         }
 
     }
 
      
 
-    public void SpawnSpecialZombie(int index)
+    /*public void SpawnSpecialZombie(int index)
     {
         if (specialZombieList.Count >= index)
         {
             Instantiate(specialZombieList[index], spawnPoints[Random.Range(0, spawnPoints.Count)]);
         }
-    }
+    }*/
 }

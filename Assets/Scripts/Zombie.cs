@@ -2,38 +2,48 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class Zombie : MonoBehaviour
+public class Zombie : NetworkBehaviour
 {
-    private PlayerMovement player;
+    [HideInInspector]
+    public PlayerMovement player;
     private Transform playerTransform;
     [SerializeField] private float speed = 4f;
     private Rigidbody rb;
     private bool cooldown;
 
     public bool stopMovement = false;
-    
-    // Start is called before the first frame update
+
+
     void Start()
     {
-        player = FindObjectOfType<PlayerMovement>();
+        if(!isServer)
+        {
+            rb = GetComponent<Rigidbody>();
+            rb.detectCollisions = false;
+            enabled = false;
+            //only server move zombies            
+        }        
+    }
+
+
+    public override void OnStartServer()
+    {
         rb = GetComponent<Rigidbody>();
     }
+
 
     // Update is called once per frame
     void FixedUpdate()
     {
+
         if (player != null)
         {
             playerTransform = player.GetTransform();
             FollowPlayer();
         }
-        else
-        {
-            player = FindObjectOfType<PlayerMovement>();
-        }
 
-        
     }
 
     private void FollowPlayer()
@@ -47,14 +57,14 @@ public class Zombie : MonoBehaviour
 
         Vector3 pos = Vector3.MoveTowards(transform.position, playerTransform.position, speed * Time.fixedDeltaTime);
         rb.MovePosition(pos);
-        
+
         transform.rotation = Quaternion.LookRotation(playerTransform.position - transform.position, Vector3.up);
     }
 
     private void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
+    {        
+        if (other.gameObject.CompareTag("Player"))//never true. not have collition on player
+        {            
             Destroy(other.gameObject);
             LevelManager.Instance.GameOver();
         }
@@ -63,13 +73,11 @@ public class Zombie : MonoBehaviour
     private void OnCollisionStay(Collision other)
     {
         if (other.gameObject.CompareTag("Counter"))
-        {
-            Debug.Log(other.gameObject.name);
-            
+        {                       
             stopMovement = true;
             Collider tmp = other.collider;
             if(tmp.enabled && stopMovement)
-                other.gameObject.GetComponent<BarHealth>().Damage(this); // do damage
+                other.gameObject.GetComponent<BarHealth>().ServerDamage(this); // do damage
             //StartCoroutine(SendDamage(other, tmp));
         }
     }
@@ -77,7 +85,7 @@ public class Zombie : MonoBehaviour
     private IEnumerator SendDamage(Collision other, Collider tmp)
     {
         cooldown = true;
-        
+
         //wait 2 seconds
         yield return new WaitForSeconds(2);
 
@@ -88,9 +96,9 @@ public class Zombie : MonoBehaviour
             if (tmp.enabled && stopMovement) ;
 
         }
-        
+
     }
-    
+
     private void OnCollisionExit(Collision other)
     {
         if (other.gameObject.CompareTag("Counter") || other.gameObject.CompareTag("Counter2"))
