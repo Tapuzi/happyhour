@@ -9,25 +9,17 @@ public class PreparingRecipe : Interactable
 {
     [SerializeField] public RecipeSO myRecipe;
     [SerializeField] private List<GameObject> requiredObjects;
-    [SerializeField] public List<GameObject> items;
     [SerializeField] public List<GameObject> ingridientPlaceholders;
     [SerializeField] public bool active = false;
 
 
-    public bool SetRecipe(int numItem)
+    public void SetRecipe(RecipeSO recipeSO)
     {
-        if (myRecipe == null)
-        {
-            print("numItem " + numItem);
+        myRecipe = recipeSO;
+        //deep copy pointers       
+        requiredObjects = recipeSO.requiredObjects.Select(r => r).ToList();       
 
-            //select random objects from items objects
-            requiredObjects = items.OrderBy(s => Random.Range(0f,1f)).Take(numItem).ToList();
-            
-            RefreshPlaceholders();
-            return true;
-        }
-
-        return false;
+        RefreshPlaceholders();
     }
 
 

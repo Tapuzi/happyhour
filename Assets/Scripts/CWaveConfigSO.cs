@@ -10,9 +10,7 @@ public class CWaveConfigSO : ScriptableObject
     [SerializeField] float maxSpawnDelay = 7f;
     [SerializeField] float minSpawnDelay = 3f;
     //recipe difficulty is number items in recipe.
-    [SerializeField] public int minItemsInOrder = 2;
-    [SerializeField] public int maxItemsInOrder = 2;
-    [SerializeField] public int numOrders = 5;
+    [SerializeField] List<RecipeSO> recipes;
     [SerializeField] GameObject orderPrefab;
 
     public IEnumerator SpawnAllCustomersInWave(List<GameObject> spawnPoints)
@@ -20,17 +18,20 @@ public class CWaveConfigSO : ScriptableObject
 
         //GameObject order = Instantiate(orderPrefab, spawnPoints[0].transform);
         //if (order.GetComponent<PreparingRecipe>().SetRecipe(recipes[0]))
-    
+           
+     
 
-        int[] given = new int[] {0, 0, 0};
-        Debug.Log("Spawning recipes: Started");
+
+        //deep copy pointers
+        List<RecipeSO> recipesThisWave = recipes.Select(r => r).ToList();
+
         // While there are still recipes to spawn
-        for (int i=0; i < numOrders;i++)
+        while (recipesThisWave.Count != 0)
         {
-            Debug.Log("Spawning recipes: Spawning new");
+           
             // Customer spawn
             GameObject[] possibleSpawn = spawnPoints.Where(sp => sp.transform.childCount == 0).ToArray();//Spawn when not have order
-            Debug.Log(possibleSpawn.Length + " possible recipe spawn location");
+ 
             if (possibleSpawn.Length == 0)  
                 break;
             int spawnPointIndex = Random.Range(0, possibleSpawn.Length);
@@ -38,7 +39,11 @@ public class CWaveConfigSO : ScriptableObject
             GameObject order = Instantiate(orderPrefab, possibleSpawn[spawnPointIndex].transform);
             // Attach recipe
 
-            order.GetComponent<PreparingRecipe>().SetRecipe(Random.Range(minItemsInOrder, maxItemsInOrder));
+            int recipesIndex = Random.Range(0, recipesThisWave.Count);
+            RecipeSO recipeSO = recipesThisWave[recipesIndex];
+            recipesThisWave.RemoveAt(recipesIndex);
+
+            order.GetComponent<PreparingRecipe>().SetRecipe(recipeSO);
 
 
             // Wait for next
