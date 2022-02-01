@@ -196,6 +196,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3a7fda41b0448592a4e6e16de8ad21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   items:
   - {fileID: 2435887584996225693, guid: bc80fb1b05eb44549a512149f24c0f15, type: 3}
   - {fileID: 8403293989111970322, guid: 2a255e0684bbadc48b88eb66922b68fe, type: 3}

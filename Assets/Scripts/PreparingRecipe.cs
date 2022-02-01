@@ -19,8 +19,11 @@ public class PreparingRecipe : Interactable
         //deep copy pointers       
         requiredObjects = recipeSO.requiredObjects.Select(r => r).ToList();       
 
-        RefreshPlaceholders();
+        RefreshPlaceholders();        
     }
+
+
+
 
 
     

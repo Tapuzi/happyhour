@@ -56,7 +56,10 @@ public class NetworkManagerHappyHour : NetworkManager
 
             //TODO https://mirror-networking.gitbook.io/docs/guides/authority add authority to player 0          
             orderSpawner0.GetComponent<NetworkIdentity>().AssignClientAuthority(conn0);
-            orderSpawner0.TargetStartgame();
+            orderSpawner0.TargetStartgame(0);
+
+            orderSpawner1.GetComponent<NetworkIdentity>().AssignClientAuthority(conn1);
+            orderSpawner1.TargetStartgame(1);
         }
         
 

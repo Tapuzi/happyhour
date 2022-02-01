@@ -23,6 +23,8 @@ TagManager:
   - camera2
   - spawn1
   - spawn2
+  - order0
+  - order1
   layers:
   - Default
   - TransparentFX

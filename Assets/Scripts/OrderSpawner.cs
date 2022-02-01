@@ -16,23 +16,26 @@ public class OrderSpawner : NetworkBehaviour
     //[SerializeField] private List<Order> specialZombieList;
     [SerializeField] private List<GameObject> spawnPoints;
 
+   
+
 
     [TargetRpc]
-    public void TargetStartgame()
-    {
+    public void TargetStartgame(int numPlayer)
+    {        
         if (hasAuthority)
         {            
-            StartCoroutine(SpawnOrders());
+            StartCoroutine(SpawnOrders(numPlayer));
         }
            
     }
 
-    public IEnumerator SpawnOrders()
+    public IEnumerator SpawnOrders(int numPlayer)
     {
         foreach (var currentWave in waves)
         {
             Debug.Log("New orders wave incoming!");
-            yield return currentWave.SpawnAllCustomersInWave(spawnPoints);
+            
+            yield return currentWave.SpawnAllCustomersInWave(spawnPoints, numPlayer);
             //FIXME whait until zombie wabe finish
         }       
         

@@ -39,9 +39,7 @@ public class ItemStore : Interactable {
         // Decided what to spawn
       
 
-        Transform parent = spawnPosition.transform.GetComponentInParent<NetworkIdentity>().GetComponent<Transform>();//NetworkIdentity must be parent
-
-        print("parent is " + parent + " child is " + spawnPosition + " item is "+ item);
+        Transform parent = spawnPosition.transform.GetComponentInParent<NetworkIdentity>().GetComponent<Transform>();//NetworkIdentity must be parent      
 
         NormalInstantiateLogic.instance.InstantiateNoWait(item, parent, spawnPosition.transform);
         GameObject spawn = NormalInstantiateLogic.instance.getLestGameObject();

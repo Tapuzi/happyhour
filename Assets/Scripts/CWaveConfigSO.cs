@@ -16,19 +16,14 @@ public class CWaveConfigSO : ScriptableObject
 
 
     private bool FlagsWaitForServer = true;
-   
 
-    public IEnumerator SpawnAllCustomersInWave(List<GameObject> spawnPoints)
+
+    //unique - tag name to now where all orders are done. all orders prefab destroy.
+    public IEnumerator SpawnAllCustomersInWave(List<GameObject> spawnPoints,int numPlayer)
     {
-
-        //GameObject order = Instantiate(orderPrefab, spawnPoints[0].transform);
-        //if (order.GetComponent<PreparingRecipe>().SetRecipe(recipes[0]))
-           
-     
-
-
         //deep copy pointers
         List<RecipeSO> recipesThisWave = recipes.Select(r => r).ToList();
+        string tag = "order" + numPlayer;
 
         // While there are still recipes to spawn
         while (recipesThisWave.Count != 0)
@@ -43,6 +38,7 @@ public class CWaveConfigSO : ScriptableObject
            
             yield return NormalInstantiateLogic.instance.Instantiate(orderPrefab, possibleSpawn[spawnPointIndex].transform);
             GameObject order = NormalInstantiateLogic.instance.getLestGameObject();            
+            order.tag = tag;
 
             // Attach recipe
 
@@ -50,15 +46,20 @@ public class CWaveConfigSO : ScriptableObject
             RecipeSO recipeSO = recipesThisWave[recipesIndex];
             recipesThisWave.RemoveAt(recipesIndex);
 
+            yield return new WaitForSeconds(0.01f);//try fix null randomaly bug
             order.GetComponent<PreparingRecipe>().SetRecipe(recipeSO);
 
 
-            // Wait for next
+            // Wait for next order
             float waitTime = Random.Range(minSpawnDelay, maxSpawnDelay);
             yield return new WaitForSeconds(waitTime);
         }
-        
-        
+
+        // Wait for next wave
+        while (GameObject.FindGameObjectsWithTag(tag).Count() != 0)
+            yield return new WaitForSeconds(minSpawnDelay);
+
+
     }
 
 
