@@ -16,29 +16,64 @@ public class OrderSpawner : NetworkBehaviour
     //[SerializeField] private List<Order> specialZombieList;
     [SerializeField] private List<GameObject> spawnPoints;
 
-   
+    [SerializeField] private ZombieSpawner zombieSpawner;
+
+    [SerializeField] private int waveIndex;
+    [SerializeField] private int numPlayer;
 
 
-    [TargetRpc]
+    [Server]
+    public void holdZombieSpawner(ZombieSpawner zombieSpawner)
+    {
+        this.zombieSpawner = zombieSpawner;
+    }
+
+
+   [TargetRpc]
     public void TargetStartgame(int numPlayer)
     {        
         if (hasAuthority)
-        {            
-            StartCoroutine(SpawnOrders(numPlayer));
+        {
+            waveIndex = 0;           
+            this.numPlayer = numPlayer;
+
+            startWave();//order first
         }
            
     }
 
-    public IEnumerator SpawnOrders(int numPlayer)
+
+    public void startWave()
     {
-        foreach (var currentWave in waves)
+        StartCoroutine(SpawnOrders());
+    }
+
+
+    public IEnumerator SpawnOrders()
+    {
+
+        if(waveIndex <= waves.Count)
         {
             Debug.Log("New orders wave incoming!");
-            
-            yield return currentWave.SpawnAllCustomersInWave(spawnPoints, numPlayer);
-            //FIXME whait until zombie wabe finish
-        }       
-        
+
+            //whait until zombie wabe finish
+            yield return waves[waveIndex].SpawnAllCustomersInWave(spawnPoints, numPlayer);
+            waveIndex++;
+        }
+        else
+        {
+            Debug.Log("all orders waves done");
+        }
+
+        CmdZombiesWave();
+
+    }
+
+
+    [Command]
+    void CmdZombiesWave()
+    {
+        zombieSpawner.ServerStartWave();
     }
 
 

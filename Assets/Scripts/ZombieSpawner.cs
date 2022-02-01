@@ -16,12 +16,28 @@ public class ZombieSpawner : NetworkBehaviour
     [SerializeField] private List<Zombie> specialZombieList;
     [SerializeField] private List<Transform> spawnPoints;
 
-    [HideInInspector]
-    public GameObject holdPlayer;
+    [SerializeField] private OrderSpawner orderSpawner;
+    [SerializeField] private int waveIndex;
+
+    [HideInInspector]public GameObject holdPlayer;
 
 
     [Server]
     public void ServerStartGame()
+    {
+
+        waveIndex = 0;
+    }
+
+    [TargetRpc]
+    public void RpcHoldOrderSpawner(OrderSpawner orderSpawner)
+    {
+        this.orderSpawner = orderSpawner;
+    }
+
+
+    [Server]
+    public void ServerStartWave()
     {
         StartCoroutine(ServerSpawnEnemies());
     }
@@ -29,21 +45,30 @@ public class ZombieSpawner : NetworkBehaviour
 
     public IEnumerator ServerSpawnEnemies()
     {
-        foreach (var currentWave in waves)
+
+
+
+        if (waveIndex <= waves.Count)
         {
             Debug.Log("New enemies wave incoming!");
-            yield return currentWave.ServerSpawnAllEnemiesInWave(spawnPoints, holdPlayer);
+
+            //whait until zombie wabe finish
+            yield return waves[waveIndex].ServerSpawnAllEnemiesInWave(spawnPoints, holdPlayer);
+            waveIndex++;
         }
+        else
+        {
+            Debug.Log("all enemies waves done");
+        }
+
+        TargetOrderWave();
 
     }
 
-     
-
-    /*public void SpawnSpecialZombie(int index)
+    [TargetRpc]
+    void TargetOrderWave()
     {
-        if (specialZombieList.Count >= index)
-        {
-            Instantiate(specialZombieList[index], spawnPoints[Random.Range(0, spawnPoints.Count)]);
-        }
-    }*/
+        orderSpawner.startWave();
+    }
+
 }

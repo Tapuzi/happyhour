@@ -49,16 +49,27 @@ public class NetworkManagerHappyHour : NetworkManager
             zombieSpawner1.holdPlayer = player;
 
             //zombies
+            zombieSpawner0.GetComponent<NetworkIdentity>().AssignClientAuthority(conn0);
+            zombieSpawner1.GetComponent<NetworkIdentity>().AssignClientAuthority(conn1);
+
+            zombieSpawner0.RpcHoldOrderSpawner(orderSpawner0);
+            zombieSpawner1.RpcHoldOrderSpawner(orderSpawner1);
+
             zombieSpawner0.ServerStartGame();
             zombieSpawner1.ServerStartGame();
-
+            
             //order
+            orderSpawner0.GetComponent<NetworkIdentity>().AssignClientAuthority(conn0);
+            orderSpawner1.GetComponent<NetworkIdentity>().AssignClientAuthority(conn1);
+
+
+            orderSpawner0.holdZombieSpawner(zombieSpawner0);
+            orderSpawner1.holdZombieSpawner(zombieSpawner1);
+
 
             //TODO https://mirror-networking.gitbook.io/docs/guides/authority add authority to player 0          
-            orderSpawner0.GetComponent<NetworkIdentity>().AssignClientAuthority(conn0);
-            orderSpawner0.TargetStartgame(0);
-
-            orderSpawner1.GetComponent<NetworkIdentity>().AssignClientAuthority(conn1);
+           
+            orderSpawner0.TargetStartgame(0);                        
             orderSpawner1.TargetStartgame(1);
         }
         
