@@ -17,6 +17,10 @@ public class NetworkManagerHappyHour : NetworkManager
     public OrderSpawner orderSpawner0;
     public OrderSpawner orderSpawner1;
 
+    public Camera camera1;
+    public Camera camera2;
+    public Camera cameraSingleplayer;
+
     public override void OnServerAddPlayer(NetworkConnection conn)
     {
         print("OnServerAddPlayer ");
@@ -26,8 +30,11 @@ public class NetworkManagerHappyHour : NetworkManager
 
 
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        if(players.Length == 2)
+
+        if (players.Length == 2 && SetttingMenu.instanceIsMultiPlayer)
         {
+            print("multi player");
+
             //first player
             GameObject player = players[0];
             NetworkPlayer networkPlayer = player.GetComponent<NetworkPlayer>();
@@ -37,7 +44,7 @@ public class NetworkManagerHappyHour : NetworkManager
             networkPlayer.TargetStartGame(networkIdentity.connectionToClient, 0);
 
             zombieSpawner0.holdPlayer = player;
-            
+
             //second player
             player = players[1];
             networkPlayer = player.GetComponent<NetworkPlayer>();
@@ -57,7 +64,7 @@ public class NetworkManagerHappyHour : NetworkManager
 
             zombieSpawner0.ServerStartGame();
             zombieSpawner1.ServerStartGame();
-            
+
             //order
             orderSpawner0.GetComponent<NetworkIdentity>().AssignClientAuthority(conn0);
             orderSpawner1.GetComponent<NetworkIdentity>().AssignClientAuthority(conn1);
@@ -68,14 +75,52 @@ public class NetworkManagerHappyHour : NetworkManager
 
 
             //TODO https://mirror-networking.gitbook.io/docs/guides/authority add authority to player 0          
-           
-            orderSpawner0.TargetStartgame(0);                        
+
+            orderSpawner0.TargetStartgame(0);
             orderSpawner1.TargetStartgame(1);
+
+
+        } else if (players.Length == 1 && !SetttingMenu.instanceIsMultiPlayer) {
+            print("single player");
+            //first player
+            GameObject player = players[0];
+            NetworkPlayer networkPlayer = player.GetComponent<NetworkPlayer>();
+            NetworkIdentity networkIdentity = player.GetComponent<NetworkIdentity>();
+            NetworkConnection conn0 = networkIdentity.connectionToClient;
+
+            networkPlayer.TargetStartGame(networkIdentity.connectionToClient, 0);
+            zombieSpawner0.holdPlayer = player;
+
+
+            //zombies
+            zombieSpawner0.GetComponent<NetworkIdentity>().AssignClientAuthority(conn0);
+            zombieSpawner0.RpcHoldOrderSpawner(orderSpawner0);
+            zombieSpawner0.ServerStartGame();
+
+            //order
+            orderSpawner0.GetComponent<NetworkIdentity>().AssignClientAuthority(conn0);
+            orderSpawner0.holdZombieSpawner(zombieSpawner0);
+
+            //TODO https://mirror-networking.gitbook.io/docs/guides/authority add authority to player 0          
+            orderSpawner0.TargetStartgame(0);
+
         }
-        
 
-
-
-        
     }
+    public override void OnClientConnect()
+    {
+        if (!SetttingMenu.instanceIsMultiPlayer)
+        {
+            camera1.gameObject.SetActive(false);
+            camera2.gameObject.SetActive(false);
+            cameraSingleplayer.gameObject.SetActive(true);
+        }
+    }
+
+
+
+
+
+
 }
+

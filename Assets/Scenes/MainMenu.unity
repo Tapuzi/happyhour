@@ -1760,7 +1760,7 @@ GameObject:
   - component: {fileID: 298159469}
   - component: {fileID: 298159468}
   m_Layer: 5
-  m_Name: Quit
+  m_Name: Credit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8828,7 +8828,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Options
+  m_Text: MultiPlayer
 --- !u!222 &1457427519
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9273,7 +9273,7 @@ GameObject:
   - component: {fileID: 1533103026}
   - component: {fileID: 1533103025}
   m_Layer: 5
-  m_Name: Start
+  m_Name: SinglePlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11046,7 +11046,7 @@ GameObject:
   - component: {fileID: 1754023905}
   - component: {fileID: 1754023904}
   m_Layer: 5
-  m_Name: Options
+  m_Name: MultiPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12327,7 +12327,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Quit
+  m_Text: Credit
 --- !u!222 &1932226705
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13333,7 +13333,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Start
+  m_Text: SinglePlayer
 --- !u!222 &2099010685
 CanvasRenderer:
   m_ObjectHideFlags: 0

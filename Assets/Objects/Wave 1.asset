@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpawnDelay: 2
   minSpawnDelay: 2
-  zombieCount: 0
+  zombieCount: 5
   zombieVariationRange: 0
   spawnPointVariation: 10
   zombiePrefabs:
   - {fileID: 2697671992097737066, guid: e816180928bfe754094da1d12e795cd1, type: 3}
-  delayForNext: 1000
+  delayForNext: 6
