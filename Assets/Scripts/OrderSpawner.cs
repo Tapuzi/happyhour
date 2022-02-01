@@ -35,7 +35,7 @@ public class OrderSpawner : NetworkBehaviour
             yield return currentWave.SpawnAllCustomersInWave(spawnPoints);
             //FIXME whait until zombie wabe finish
         }       
-        //wait to next wave
+        
     }
 
 

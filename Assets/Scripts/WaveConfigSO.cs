@@ -20,6 +20,10 @@ public class WaveConfigSO : ScriptableObject
 
     public IEnumerator ServerSpawnAllEnemiesInWave(List<Transform> spawnPoints, GameObject playerToFollow)
     {
+
+        if (zombieCount == 0)
+            Debug.LogWarning("zombieCount is 0 in wave. disable zombies");
+
         for (int i = 0; i < zombieCount; i++)
         {
             int spawnPointIndex = Random.Range(0, spawnPoints.Count);
