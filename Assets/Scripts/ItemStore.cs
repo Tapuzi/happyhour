@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using UnityEngine;
+using Mirror;
+
 
 public class ItemStore : Interactable {
     public List<GameObject> items = new List<GameObject>();
@@ -35,7 +37,15 @@ public class ItemStore : Interactable {
                 item = items[0];
         }
         // Decided what to spawn
-        GameObject spawn = Instantiate(item, spawnPosition.transform.position, spawnPosition.transform.rotation, spawnPosition.transform);
+      
+
+        Transform parent = spawnPosition.transform.GetComponentInParent<NetworkIdentity>().GetComponent<Transform>();//NetworkIdentity must be parent
+
+        print("parent is " + parent + " child is " + spawnPosition + " item is "+ item);
+
+        NormalInstantiateLogic.instance.InstantiateNoWait(item, parent, spawnPosition.transform);
+        GameObject spawn = NormalInstantiateLogic.instance.getLestGameObject();
+
         // spawn.transform.position = Vector3.zero;
         // Remove current item
         if (null != currentItem)

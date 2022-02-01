@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Mirror;
 
 [CreateAssetMenu(menuName = "Customer wave config", fileName = "Customer wave config")]
 public class CWaveConfigSO : ScriptableObject
@@ -12,6 +13,10 @@ public class CWaveConfigSO : ScriptableObject
     //recipe difficulty is number items in recipe.
     [SerializeField] List<RecipeSO> recipes;
     [SerializeField] GameObject orderPrefab;
+
+
+    private bool FlagsWaitForServer = true;
+   
 
     public IEnumerator SpawnAllCustomersInWave(List<GameObject> spawnPoints)
     {
@@ -35,8 +40,10 @@ public class CWaveConfigSO : ScriptableObject
             if (possibleSpawn.Length == 0)  
                 break;
             int spawnPointIndex = Random.Range(0, possibleSpawn.Length);
+           
+            yield return NormalInstantiateLogic.instance.Instantiate(orderPrefab, possibleSpawn[spawnPointIndex].transform);
+            GameObject order = NormalInstantiateLogic.instance.getLestGameObject();            
 
-            GameObject order = Instantiate(orderPrefab, possibleSpawn[spawnPointIndex].transform);
             // Attach recipe
 
             int recipesIndex = Random.Range(0, recipesThisWave.Count);
@@ -53,5 +60,11 @@ public class CWaveConfigSO : ScriptableObject
         
         
     }
-	
+
+
+
+
+
+
+
 }

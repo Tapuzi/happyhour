@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3104954862100173089}
   - component: {fileID: 2069641979781013124}
   - component: {fileID: 4277345576200546894}
+  - component: {fileID: 1727764372058547548}
   m_Layer: 0
   m_Name: items_fruit_orange
   m_TagString: orange
@@ -82,3 +83,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1727764372058547548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2331971063017769883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 57c5a574d4734764a97870672cb3dd30
+  hasSpawned: 0

@@ -32,12 +32,16 @@ public class PreparingRecipe : Interactable
             if (ingridientPlaceholders[i].transform.childCount > 0)
                 Destroy(ingridientPlaceholders[i].transform.GetChild(0).gameObject);
             if (requiredObjects[i] != null)
-                Instantiate(requiredObjects[i], ingridientPlaceholders[i].transform);
+                NormalInstantiateLogic.instance.InstantiateNoWait(requiredObjects[i],transform ,ingridientPlaceholders[i].transform);
         }
     }
 
     public override void Interact(PlayerInteract interact)
     {
+
+        if (!hasAuthority)
+            return;
+
         foreach (var requiredObject in requiredObjects.Where(ro => ro != null))
         {
             var heldItem = interact.GetHeldItem();

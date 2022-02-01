@@ -1182,6 +1182,7 @@ GameObject:
   - component: {fileID: 5449547072980185420}
   - component: {fileID: 4363498452718543854}
   - component: {fileID: 874336720411115622}
+  - component: {fileID: -3201497820765285262}
   - component: {fileID: -4477914130071832782}
   - component: {fileID: -3759736374408278554}
   m_Layer: 0
@@ -1291,6 +1292,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemParent: {fileID: 1216534934491985663}
   interactCollider: {fileID: 6912270814821731973}
+--- !u!114 &-3201497820765285262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5143612020283254405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9e7de057c814254ea347e90fd367bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  prefabsList:
+  - {fileID: 2491690693435485834, guid: a2fb3b46ecad9fd4b9b1d9b6f03f4063, type: 3}
+  - {fileID: 4509765907186135839, guid: 62d091f06eb9b72489fed625970cde17, type: 3}
+  - {fileID: 1555896797964760258, guid: 3cbb1ffbf42bd604f8aaa63f63d3eba3, type: 3}
+  - {fileID: 1130743869002686419, guid: 5b2a2232514050f41a53b4f9c279ddb5, type: 3}
+  - {fileID: 2435887584996225693, guid: bc80fb1b05eb44549a512149f24c0f15, type: 3}
+  - {fileID: 8403293989111970322, guid: 2a255e0684bbadc48b88eb66922b68fe, type: 3}
+  - {fileID: 1248021726004230322, guid: ccc52d81ee1eeee48979ac3d51c7eeec, type: 3}
+  - {fileID: 2331971063017769883, guid: 57c5a574d4734764a97870672cb3dd30, type: 3}
+  - {fileID: 5839888778164533553, guid: 727a301b4ae097c4f8d41e62dde57bc5, type: 3}
+  - {fileID: 7927727268006156323, guid: baee875723b85ab4495941dce0e525e4, type: 3}
+  - {fileID: 793254178579923726, guid: 86dcd47e6c877744d957d475c885bdb6, type: 3}
+  - {fileID: 7697072409309671931, guid: 48554172bdcacc148bfc41965809908a, type: 3}
+  - {fileID: 7207001573817398869, guid: 1a2123412dd462b4884d7a948b2d4cc3, type: 3}
+  - {fileID: 2366165095368342236, guid: 08f7390a319c34e44bd6003590410282, type: 3}
+  timeWait: 0.1
 --- !u!114 &-4477914130071832782
 MonoBehaviour:
   m_ObjectHideFlags: 0

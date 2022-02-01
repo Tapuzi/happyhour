@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 358851055752791401}
   - component: {fileID: 3698931624912898764}
   - component: {fileID: 1491195048244854278}
+  - component: {fileID: 7705036110250918323}
   m_Layer: 0
   m_Name: items_booze_wineWhite
   m_TagString: wineWhite
@@ -83,3 +84,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7705036110250918323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130743869002686419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 5b2a2232514050f41a53b4f9c279ddb5
+  hasSpawned: 0
